@@ -1,0 +1,1513 @@
+lga,year,income
+Bayside,1990,22811.4
+Bayside,1991,22811.4
+Bayside,1992,24795.0
+Bayside,1993,26778.6
+Bayside,1994,26778.6
+Bayside,1995,28762.2
+Bayside,1996,28762.2
+Bayside,1997,30497.85
+Bayside,1998,32233.5
+Bayside,1999,34713.0
+Bayside,2000,34713.0
+Bayside,2001,35967.0
+Bayside,2002,37333.0
+Bayside,2003,38408.0
+Bayside,2004,38479.0
+Bayside,2005,39654.0
+Bayside,2006,41228.0
+Bayside,2007,42342.0
+Bayside,2008,43475.0
+Bayside,2009,45978.0
+Bayside,2010,44971.0
+Bayside,2011,43964.0
+Bayside,2012,42957.0
+Bayside,2013,44793.0
+Bayside,2014,45985.0
+Bayside,2015,46894.0
+Bayside,2016,47809.0
+Bayside,2017,48383.0
+Bayside,2018,49445.0
+Bayside,2019,50953.0
+Bayside,2020,51718.0
+Bayside,2021,53382.0
+Bayside,2022,55324.0
+Bayside,2023,59885.0
+Bayside,2024,62355.44
+Bayside,2025,65570.84
+Blacktown,1990,21061.43
+Blacktown,1991,21061.43
+Blacktown,1992,22892.86
+Blacktown,1993,24724.29
+Blacktown,1994,24724.29
+Blacktown,1995,26555.71
+Blacktown,1996,26555.71
+Blacktown,1997,28158.21
+Blacktown,1998,29760.71
+Blacktown,1999,32050.0
+Blacktown,2000,32050.0
+Blacktown,2001,32911.0
+Blacktown,2002,33738.0
+Blacktown,2003,34968.0
+Blacktown,2004,35616.0
+Blacktown,2005,36863.0
+Blacktown,2006,38099.0
+Blacktown,2007,39315.0
+Blacktown,2008,40724.0
+Blacktown,2009,42334.0
+Blacktown,2010,43162.5
+Blacktown,2011,43991.0
+Blacktown,2012,45630.0
+Blacktown,2013,47309.0
+Blacktown,2014,48236.0
+Blacktown,2015,49080.0
+Blacktown,2016,50647.0
+Blacktown,2017,51422.0
+Blacktown,2018,52802.0
+Blacktown,2019,54480.0
+Blacktown,2020,56098.0
+Blacktown,2021,57353.0
+Blacktown,2022,58554.0
+Blacktown,2023,62478.0
+Blacktown,2024,65055.4
+Blacktown,2025,68410.04
+Blue Mountains,1990,21114.66
+Blue Mountains,1991,21114.66
+Blue Mountains,1992,22950.71
+Blue Mountains,1993,24786.77
+Blue Mountains,1994,24786.77
+Blue Mountains,1995,26622.83
+Blue Mountains,1996,26622.83
+Blue Mountains,1997,28229.38
+Blue Mountains,1998,29835.93
+Blue Mountains,1999,32131.0
+Blue Mountains,2000,32131.0
+Blue Mountains,2001,33351.0
+Blue Mountains,2002,34484.0
+Blue Mountains,2003,35949.0
+Blue Mountains,2004,35188.0
+Blue Mountains,2005,36243.0
+Blue Mountains,2006,37208.0
+Blue Mountains,2007,38182.0
+Blue Mountains,2008,39534.0
+Blue Mountains,2009,41311.0
+Blue Mountains,2010,41347.5
+Blue Mountains,2011,41384.0
+Blue Mountains,2012,43302.0
+Blue Mountains,2013,44920.0
+Blue Mountains,2014,45821.0
+Blue Mountains,2015,46563.0
+Blue Mountains,2016,47705.0
+Blue Mountains,2017,48325.0
+Blue Mountains,2018,49788.0
+Blue Mountains,2019,51734.0
+Blue Mountains,2020,53047.0
+Blue Mountains,2021,54473.0
+Blue Mountains,2022,54847.0
+Blue Mountains,2023,58987.0
+Blue Mountains,2024,61420.39
+Blue Mountains,2025,64587.58
+Burwood,1990,20184.8
+Burwood,1991,20184.8
+Burwood,1992,21940.0
+Burwood,1993,23695.2
+Burwood,1994,23695.2
+Burwood,1995,25450.4
+Burwood,1996,25450.4
+Burwood,1997,26986.2
+Burwood,1998,28522.0
+Burwood,1999,30716.0
+Burwood,2000,30716.0
+Burwood,2001,31421.0
+Burwood,2002,32772.0
+Burwood,2003,33221.0
+Burwood,2004,32560.0
+Burwood,2005,33266.0
+Burwood,2006,34087.0
+Burwood,2007,34628.0
+Burwood,2008,35453.0
+Burwood,2009,37031.0
+Burwood,2010,36275.0
+Burwood,2011,35519.0
+Burwood,2012,36601.0
+Burwood,2013,38728.0
+Burwood,2014,39914.0
+Burwood,2015,40677.0
+Burwood,2016,41388.0
+Burwood,2017,40811.0
+Burwood,2018,40562.0
+Burwood,2019,41051.0
+Burwood,2020,40937.0
+Burwood,2021,43967.0
+Burwood,2022,45560.0
+Burwood,2023,51481.0
+Burwood,2024,53604.75
+Burwood,2025,56368.92
+Camden,1990,22126.66
+Camden,1991,22126.66
+Camden,1992,24050.71
+Camden,1993,25974.77
+Camden,1994,25974.77
+Camden,1995,27898.83
+Camden,1996,27898.83
+Camden,1997,29582.38
+Camden,1998,31265.93
+Camden,1999,33671.0
+Camden,2000,33671.0
+Camden,2001,34711.0
+Camden,2002,36030.0
+Camden,2003,37215.0
+Camden,2004,37722.0
+Camden,2005,38494.0
+Camden,2006,39787.0
+Camden,2007,41433.0
+Camden,2008,42781.0
+Camden,2009,45015.0
+Camden,2010,45219.0
+Camden,2011,45423.0
+Camden,2012,49179.0
+Camden,2013,51406.0
+Camden,2014,53040.0
+Camden,2015,54110.0
+Camden,2016,55907.0
+Camden,2017,56641.0
+Camden,2018,58416.0
+Camden,2019,60102.0
+Camden,2020,61468.0
+Camden,2021,62213.0
+Camden,2022,63076.0
+Camden,2023,67889.0
+Camden,2024,70689.62
+Camden,2025,74334.79
+Campbelltown,1990,20347.77
+Campbelltown,1991,20347.77
+Campbelltown,1992,22117.14
+Campbelltown,1993,23886.51
+Campbelltown,1994,23886.51
+Campbelltown,1995,25655.89
+Campbelltown,1996,25655.89
+Campbelltown,1997,27204.09
+Campbelltown,1998,28752.29
+Campbelltown,1999,30964.0
+Campbelltown,2000,30964.0
+Campbelltown,2001,31545.0
+Campbelltown,2002,32399.0
+Campbelltown,2003,33656.0
+Campbelltown,2004,34287.0
+Campbelltown,2005,35342.0
+Campbelltown,2006,36653.0
+Campbelltown,2007,37919.0
+Campbelltown,2008,39259.0
+Campbelltown,2009,40730.0
+Campbelltown,2010,41919.5
+Campbelltown,2011,43109.0
+Campbelltown,2012,44437.0
+Campbelltown,2013,45674.0
+Campbelltown,2014,46438.0
+Campbelltown,2015,47465.0
+Campbelltown,2016,48832.0
+Campbelltown,2017,49354.0
+Campbelltown,2018,51038.0
+Campbelltown,2019,52766.0
+Campbelltown,2020,53462.0
+Campbelltown,2021,53564.0
+Campbelltown,2022,53901.0
+Campbelltown,2023,58570.0
+Campbelltown,2024,60986.19
+Campbelltown,2025,64130.99
+Canada Bay,1990,26072.8
+Canada Bay,1991,26072.8
+Canada Bay,1992,28340.0
+Canada Bay,1993,30607.2
+Canada Bay,1994,30607.2
+Canada Bay,1995,32874.4
+Canada Bay,1996,32874.4
+Canada Bay,1997,34858.2
+Canada Bay,1998,36842.0
+Canada Bay,1999,39676.0
+Canada Bay,2000,39676.0
+Canada Bay,2001,39676.0
+Canada Bay,2002,39676.0
+Canada Bay,2003,41083.0
+Canada Bay,2004,41417.0
+Canada Bay,2005,43444.0
+Canada Bay,2006,45077.0
+Canada Bay,2007,46442.0
+Canada Bay,2008,47552.0
+Canada Bay,2009,49648.0
+Canada Bay,2010,47046.0
+Canada Bay,2011,44444.0
+Canada Bay,2012,51961.0
+Canada Bay,2013,53713.0
+Canada Bay,2014,54509.0
+Canada Bay,2015,55457.0
+Canada Bay,2016,56096.0
+Canada Bay,2017,56951.0
+Canada Bay,2018,58243.0
+Canada Bay,2019,60171.0
+Canada Bay,2020,61661.0
+Canada Bay,2021,63761.0
+Canada Bay,2022,66289.0
+Canada Bay,2023,69770.0
+Canada Bay,2024,72648.22
+Canada Bay,2025,76394.39
+Canterbury-Bankstown,1990,19513.2
+Canterbury-Bankstown,1991,19513.2
+Canterbury-Bankstown,1992,21210.0
+Canterbury-Bankstown,1993,22906.8
+Canterbury-Bankstown,1994,22906.8
+Canterbury-Bankstown,1995,24603.6
+Canterbury-Bankstown,1996,24603.6
+Canterbury-Bankstown,1997,26088.3
+Canterbury-Bankstown,1998,27573.0
+Canterbury-Bankstown,1999,29694.0
+Canterbury-Bankstown,2000,29694.0
+Canterbury-Bankstown,2001,30578.5
+Canterbury-Bankstown,2002,31434.0
+Canterbury-Bankstown,2003,32686.0
+Canterbury-Bankstown,2004,32866.5
+Canterbury-Bankstown,2005,33699.5
+Canterbury-Bankstown,2006,34794.0
+Canterbury-Bankstown,2007,35439.5
+Canterbury-Bankstown,2008,36534.5
+Canterbury-Bankstown,2009,37966.5
+Canterbury-Bankstown,2010,38401.75
+Canterbury-Bankstown,2011,38837.0
+Canterbury-Bankstown,2012,38549.0
+Canterbury-Bankstown,2013,40165.0
+Canterbury-Bankstown,2014,40919.0
+Canterbury-Bankstown,2015,41707.0
+Canterbury-Bankstown,2016,42542.0
+Canterbury-Bankstown,2017,42882.0
+Canterbury-Bankstown,2018,43786.0
+Canterbury-Bankstown,2019,45160.0
+Canterbury-Bankstown,2020,45875.0
+Canterbury-Bankstown,2021,46292.0
+Canterbury-Bankstown,2022,45563.0
+Canterbury-Bankstown,2023,50569.0
+Canterbury-Bankstown,2024,52655.12
+Canterbury-Bankstown,2025,55370.33
+Central Coast,1990,19127.46
+Central Coast,1991,19127.46
+Central Coast,1992,20790.71
+Central Coast,1993,22453.97
+Central Coast,1994,22453.97
+Central Coast,1995,24117.23
+Central Coast,1996,24117.23
+Central Coast,1997,25572.58
+Central Coast,1998,27027.93
+Central Coast,1999,29107.0
+Central Coast,2000,29107.0
+Central Coast,2001,29967.5
+Central Coast,2002,30815.0
+Central Coast,2003,31774.0
+Central Coast,2004,31079.5
+Central Coast,2005,31839.0
+Central Coast,2006,33151.5
+Central Coast,2007,34010.0
+Central Coast,2008,35197.5
+Central Coast,2009,37002.0
+Central Coast,2010,37820.75
+Central Coast,2011,38639.5
+Central Coast,2012,39637.0
+Central Coast,2013,41433.0
+Central Coast,2014,42501.0
+Central Coast,2015,43676.0
+Central Coast,2016,44951.0
+Central Coast,2017,45608.0
+Central Coast,2018,47148.0
+Central Coast,2019,49022.0
+Central Coast,2020,50037.0
+Central Coast,2021,50442.0
+Central Coast,2022,50650.0
+Central Coast,2023,55035.0
+Central Coast,2024,57305.36
+Central Coast,2025,60260.36
+Cessnock,1990,18704.26
+Cessnock,1991,18704.26
+Cessnock,1992,20330.71
+Cessnock,1993,21957.17
+Cessnock,1994,21957.17
+Cessnock,1995,23583.63
+Cessnock,1996,23583.63
+Cessnock,1997,25006.78
+Cessnock,1998,26429.93
+Cessnock,1999,28463.0
+Cessnock,2000,28463.0
+Cessnock,2001,29303.0
+Cessnock,2002,30059.0
+Cessnock,2003,30850.0
+Cessnock,2004,30335.0
+Cessnock,2005,30987.0
+Cessnock,2006,33227.0
+Cessnock,2007,34202.0
+Cessnock,2008,35701.0
+Cessnock,2009,37686.0
+Cessnock,2010,37728.5
+Cessnock,2011,37771.0
+Cessnock,2012,42042.0
+Cessnock,2013,43384.0
+Cessnock,2014,43936.0
+Cessnock,2015,44724.0
+Cessnock,2016,45107.0
+Cessnock,2017,46632.0
+Cessnock,2018,47847.0
+Cessnock,2019,49744.0
+Cessnock,2020,51320.0
+Cessnock,2021,51489.0
+Cessnock,2022,51927.0
+Cessnock,2023,57447.0
+Cessnock,2024,59816.86
+Cessnock,2025,62901.37
+Cumberland,1990,20070.02
+Cumberland,1991,20070.02
+Cumberland,1992,21815.24
+Cumberland,1993,23560.46
+Cumberland,1994,23560.46
+Cumberland,1995,25305.68
+Cumberland,1996,25305.68
+Cumberland,1997,26832.74
+Cumberland,1998,28359.81
+Cumberland,1999,30541.33
+Cumberland,2000,30541.33333
+Cumberland,2001,31353.0
+Cumberland,2002,32262.66667
+Cumberland,2003,33455.66667
+Cumberland,2004,33553.33333
+Cumberland,2005,34208.33333
+Cumberland,2006,35397.33333
+Cumberland,2007,36306.66667
+Cumberland,2008,37403.0
+Cumberland,2009,38809.66667
+Cumberland,2010,39312.5
+Cumberland,2011,39815.33333
+Cumberland,2012,38470.0
+Cumberland,2013,39860.0
+Cumberland,2014,40273.0
+Cumberland,2015,40786.0
+Cumberland,2016,40890.0
+Cumberland,2017,41083.0
+Cumberland,2018,41783.0
+Cumberland,2019,42992.0
+Cumberland,2020,43796.0
+Cumberland,2021,45968.0
+Cumberland,2022,45704.0
+Cumberland,2023,50276.0
+Cumberland,2024,52350.04
+Cumberland,2025,55049.51
+Fairfield,1990,19346.94
+Fairfield,1991,19346.94
+Fairfield,1992,21029.29
+Fairfield,1993,22711.63
+Fairfield,1994,22711.63
+Fairfield,1995,24393.97
+Fairfield,1996,24393.97
+Fairfield,1997,25866.02
+Fairfield,1998,27338.07
+Fairfield,1999,29441.0
+Fairfield,2000,29441.0
+Fairfield,2001,30049.0
+Fairfield,2002,30921.0
+Fairfield,2003,32082.0
+Fairfield,2004,32253.0
+Fairfield,2005,32949.0
+Fairfield,2006,33989.0
+Fairfield,2007,35001.0
+Fairfield,2008,36128.0
+Fairfield,2009,37654.0
+Fairfield,2010,38292.0
+Fairfield,2011,38930.0
+Fairfield,2012,38431.0
+Fairfield,2013,39932.0
+Fairfield,2014,40529.0
+Fairfield,2015,41466.0
+Fairfield,2016,42326.0
+Fairfield,2017,42673.0
+Fairfield,2018,43555.0
+Fairfield,2019,44806.0
+Fairfield,2020,45569.0
+Fairfield,2021,45164.0
+Fairfield,2022,43389.0
+Fairfield,2023,48037.0
+Fairfield,2024,50018.67
+Fairfield,2025,52597.92
+Georges River,1990,21408.07
+Georges River,1991,21408.07
+Georges River,1992,23269.64
+Georges River,1993,25131.21
+Georges River,1994,25131.21
+Georges River,1995,26992.79
+Georges River,1996,26992.79
+Georges River,1997,28621.66
+Georges River,1998,30250.54
+Georges River,1999,32577.5
+Georges River,2000,32577.5
+Georges River,2001,33529.0
+Georges River,2002,34229.5
+Georges River,2003,35302.0
+Georges River,2004,35071.5
+Georges River,2005,36075.0
+Georges River,2006,36912.0
+Georges River,2007,37774.0
+Georges River,2008,38678.0
+Georges River,2009,40375.5
+Georges River,2010,40195.75
+Georges River,2011,40016.0
+Georges River,2012,42070.0
+Georges River,2013,43576.0
+Georges River,2014,44472.0
+Georges River,2015,45252.0
+Georges River,2016,46033.0
+Georges River,2017,45913.0
+Georges River,2018,46473.0
+Georges River,2019,47928.0
+Georges River,2020,48250.0
+Georges River,2021,50446.0
+Georges River,2022,52451.0
+Georges River,2023,58246.0
+Georges River,2024,60648.82
+Georges River,2025,63776.23
+Hawkesbury,1990,20255.77
+Hawkesbury,1991,20255.77
+Hawkesbury,1992,22017.14
+Hawkesbury,1993,23778.51
+Hawkesbury,1994,23778.51
+Hawkesbury,1995,25539.89
+Hawkesbury,1996,25539.89
+Hawkesbury,1997,27081.09
+Hawkesbury,1998,28622.29
+Hawkesbury,1999,30824.0
+Hawkesbury,2000,30824.0
+Hawkesbury,2001,31842.0
+Hawkesbury,2002,32973.0
+Hawkesbury,2003,34176.0
+Hawkesbury,2004,34370.0
+Hawkesbury,2005,35563.0
+Hawkesbury,2006,36583.0
+Hawkesbury,2007,37520.0
+Hawkesbury,2008,38857.0
+Hawkesbury,2009,40392.0
+Hawkesbury,2010,40805.0
+Hawkesbury,2011,41218.0
+Hawkesbury,2012,43859.0
+Hawkesbury,2013,45415.0
+Hawkesbury,2014,46731.0
+Hawkesbury,2015,48276.0
+Hawkesbury,2016,49923.0
+Hawkesbury,2017,51142.0
+Hawkesbury,2018,52890.0
+Hawkesbury,2019,54200.0
+Hawkesbury,2020,55576.0
+Hawkesbury,2021,56090.0
+Hawkesbury,2022,56040.0
+Hawkesbury,2023,60727.0
+Hawkesbury,2024,63232.17
+Hawkesbury,2025,66492.79
+Hornsby,1990,22858.06
+Hornsby,1991,22858.06
+Hornsby,1992,24845.71
+Hornsby,1993,26833.37
+Hornsby,1994,26833.37
+Hornsby,1995,28821.03
+Hornsby,1996,28821.03
+Hornsby,1997,30560.23
+Hornsby,1998,32299.43
+Hornsby,1999,34784.0
+Hornsby,2000,34784.0
+Hornsby,2001,36226.0
+Hornsby,2002,36863.0
+Hornsby,2003,38009.0
+Hornsby,2004,37468.0
+Hornsby,2005,38511.0
+Hornsby,2006,39934.0
+Hornsby,2007,40995.0
+Hornsby,2008,42265.0
+Hornsby,2009,44688.0
+Hornsby,2010,42770.0
+Hornsby,2011,40852.0
+Hornsby,2012,47436.0
+Hornsby,2013,49223.0
+Hornsby,2014,50292.0
+Hornsby,2015,51350.0
+Hornsby,2016,52738.0
+Hornsby,2017,53442.0
+Hornsby,2018,54744.0
+Hornsby,2019,56974.0
+Hornsby,2020,58293.0
+Hornsby,2021,59372.0
+Hornsby,2022,62471.0
+Hornsby,2023,66555.0
+Hornsby,2024,69300.59
+Hornsby,2025,72874.13
+Hunters Hill,1990,24998.37
+Hunters Hill,1991,24998.37
+Hunters Hill,1992,27172.14
+Hunters Hill,1993,29345.91
+Hunters Hill,1994,29345.91
+Hunters Hill,1995,31519.69
+Hunters Hill,1996,31519.69
+Hunters Hill,1997,33421.74
+Hunters Hill,1998,35323.79
+Hunters Hill,1999,38041.0
+Hunters Hill,2000,38041.0
+Hunters Hill,2001,39855.0
+Hunters Hill,2002,41552.0
+Hunters Hill,2003,42982.0
+Hunters Hill,2004,41967.0
+Hunters Hill,2005,43594.0
+Hunters Hill,2006,44773.0
+Hunters Hill,2007,45714.0
+Hunters Hill,2008,46497.0
+Hunters Hill,2009,47352.0
+Hunters Hill,2010,43572.5
+Hunters Hill,2011,39793.0
+Hunters Hill,2012,59844.0
+Hunters Hill,2013,62842.0
+Hunters Hill,2014,64933.0
+Hunters Hill,2015,66407.0
+Hunters Hill,2016,69912.0
+Hunters Hill,2017,69778.0
+Hunters Hill,2018,70458.0
+Hunters Hill,2019,73705.0
+Hunters Hill,2020,74274.0
+Hunters Hill,2021,74611.0
+Hunters Hill,2022,78131.0
+Hunters Hill,2023,80855.0
+Hunters Hill,2024,84190.51
+Hunters Hill,2025,88531.86
+Inner West,1990,22602.21
+Inner West,1991,22602.21
+Inner West,1992,24567.62
+Inner West,1993,26533.03
+Inner West,1994,26533.03
+Inner West,1995,28498.44
+Inner West,1996,28498.44
+Inner West,1997,30218.17
+Inner West,1998,31937.9
+Inner West,1999,34394.67
+Inner West,2000,34394.66667
+Inner West,2001,35851.66667
+Inner West,2002,37193.33333
+Inner West,2003,39164.66667
+Inner West,2004,39816.33333
+Inner West,2005,41384.33333
+Inner West,2006,43207.66667
+Inner West,2007,44560.0
+Inner West,2008,45929.66667
+Inner West,2009,47839.0
+Inner West,2010,45939.666665
+Inner West,2011,44040.33333
+Inner West,2012,52199.0
+Inner West,2013,54430.0
+Inner West,2014,55989.0
+Inner West,2015,57301.0
+Inner West,2016,59101.0
+Inner West,2017,60188.0
+Inner West,2018,62468.0
+Inner West,2019,65245.0
+Inner West,2020,67422.0
+Inner West,2021,69618.0
+Inner West,2022,72551.0
+Inner West,2023,75949.0
+Inner West,2024,79082.12
+Inner West,2025,83160.06
+Kiama,1990,20210.43
+Kiama,1991,20210.43
+Kiama,1992,21967.86
+Kiama,1993,23725.29
+Kiama,1994,23725.29
+Kiama,1995,25482.71
+Kiama,1996,25482.71
+Kiama,1997,27020.46
+Kiama,1998,28558.21
+Kiama,1999,30755.0
+Kiama,2000,30755.0
+Kiama,2001,31521.0
+Kiama,2002,32744.0
+Kiama,2003,33428.0
+Kiama,2004,32198.0
+Kiama,2005,32904.0
+Kiama,2006,33998.0
+Kiama,2007,34985.0
+Kiama,2008,36300.0
+Kiama,2009,38107.0
+Kiama,2010,38455.0
+Kiama,2011,38803.0
+Kiama,2012,40553.0
+Kiama,2013,41638.0
+Kiama,2014,42895.0
+Kiama,2015,43820.0
+Kiama,2016,45542.0
+Kiama,2017,46340.0
+Kiama,2018,47586.0
+Kiama,2019,48845.0
+Kiama,2020,49263.0
+Kiama,2021,50688.0
+Kiama,2022,51149.0
+Kiama,2023,53652.0
+Kiama,2024,55865.31
+Kiama,2025,58746.05
+Ku-Ring-Gai,1990,24123.71
+Ku-Ring-Gai,1991,24123.71
+Ku-Ring-Gai,1992,26221.43
+Ku-Ring-Gai,1993,28319.14
+Ku-Ring-Gai,1994,28319.14
+Ku-Ring-Gai,1995,30416.86
+Ku-Ring-Gai,1996,30416.86
+Ku-Ring-Gai,1997,32252.36
+Ku-Ring-Gai,1998,34087.86
+Ku-Ring-Gai,1999,36710.0
+Ku-Ring-Gai,2000,36710.0
+Ku-Ring-Gai,2001,38785.0
+Ku-Ring-Gai,2002,39551.0
+Ku-Ring-Gai,2003,41030.0
+Ku-Ring-Gai,2004,38207.0
+Ku-Ring-Gai,2005,39602.0
+Ku-Ring-Gai,2006,41060.0
+Ku-Ring-Gai,2007,41599.0
+Ku-Ring-Gai,2008,42099.0
+Ku-Ring-Gai,2009,45184.0
+Ku-Ring-Gai,2010,40326.5
+Ku-Ring-Gai,2011,35469.0
+Ku-Ring-Gai,2012,52142.0
+Ku-Ring-Gai,2013,54301.0
+Ku-Ring-Gai,2014,56155.0
+Ku-Ring-Gai,2015,57237.0
+Ku-Ring-Gai,2016,58598.0
+Ku-Ring-Gai,2017,59116.0
+Ku-Ring-Gai,2018,60000.0
+Ku-Ring-Gai,2019,62263.0
+Ku-Ring-Gai,2020,62573.0
+Ku-Ring-Gai,2021,63108.0
+Ku-Ring-Gai,2022,66995.0
+Ku-Ring-Gai,2023,69492.0
+Ku-Ring-Gai,2024,72358.75
+Ku-Ring-Gai,2025,76089.99
+Lake Macquarie,1990,19486.91
+Lake Macquarie,1991,19486.91
+Lake Macquarie,1992,21181.43
+Lake Macquarie,1993,22875.94
+Lake Macquarie,1994,22875.94
+Lake Macquarie,1995,24570.46
+Lake Macquarie,1996,24570.46
+Lake Macquarie,1997,26053.16
+Lake Macquarie,1998,27535.86
+Lake Macquarie,1999,29654.0
+Lake Macquarie,2000,29654.0
+Lake Macquarie,2001,30371.0
+Lake Macquarie,2002,31335.0
+Lake Macquarie,2003,32516.0
+Lake Macquarie,2004,31848.0
+Lake Macquarie,2005,32859.0
+Lake Macquarie,2006,34044.0
+Lake Macquarie,2007,35212.0
+Lake Macquarie,2008,36704.0
+Lake Macquarie,2009,38687.0
+Lake Macquarie,2010,39326.0
+Lake Macquarie,2011,39965.0
+Lake Macquarie,2012,42816.0
+Lake Macquarie,2013,44589.0
+Lake Macquarie,2014,45161.0
+Lake Macquarie,2015,45909.0
+Lake Macquarie,2016,47059.0
+Lake Macquarie,2017,47661.0
+Lake Macquarie,2018,49559.0
+Lake Macquarie,2019,51547.0
+Lake Macquarie,2020,52631.0
+Lake Macquarie,2021,53323.0
+Lake Macquarie,2022,54253.0
+Lake Macquarie,2023,58267.0
+Lake Macquarie,2024,60670.69
+Lake Macquarie,2025,63799.22
+Lane Cove,1990,26151.0
+Lane Cove,1991,26151.0
+Lane Cove,1992,28425.0
+Lane Cove,1993,30699.0
+Lane Cove,1994,30699.0
+Lane Cove,1995,32973.0
+Lane Cove,1996,32973.0
+Lane Cove,1997,34962.75
+Lane Cove,1998,36952.5
+Lane Cove,1999,39795.0
+Lane Cove,2000,39795.0
+Lane Cove,2001,41969.0
+Lane Cove,2002,42570.0
+Lane Cove,2003,43748.0
+Lane Cove,2004,43421.0
+Lane Cove,2005,45690.0
+Lane Cove,2006,47527.0
+Lane Cove,2007,48630.0
+Lane Cove,2008,50206.0
+Lane Cove,2009,51918.0
+Lane Cove,2010,48444.5
+Lane Cove,2011,44971.0
+Lane Cove,2012,59780.0
+Lane Cove,2013,61796.0
+Lane Cove,2014,63080.0
+Lane Cove,2015,64880.0
+Lane Cove,2016,67210.0
+Lane Cove,2017,68030.0
+Lane Cove,2018,70686.0
+Lane Cove,2019,73707.0
+Lane Cove,2020,74773.0
+Lane Cove,2021,77072.0
+Lane Cove,2022,81960.0
+Lane Cove,2023,85425.0
+Lane Cove,2024,88949.04
+Lane Cove,2025,93535.77
+Liverpool,1990,20627.71
+Liverpool,1991,20627.71
+Liverpool,1992,22421.43
+Liverpool,1993,24215.14
+Liverpool,1994,24215.14
+Liverpool,1995,26008.86
+Liverpool,1996,26008.86
+Liverpool,1997,27578.36
+Liverpool,1998,29147.86
+Liverpool,1999,31390.0
+Liverpool,2000,31390.0
+Liverpool,2001,32471.0
+Liverpool,2002,33267.0
+Liverpool,2003,34330.0
+Liverpool,2004,35074.0
+Liverpool,2005,36119.0
+Liverpool,2006,37143.0
+Liverpool,2007,38246.0
+Liverpool,2008,39964.0
+Liverpool,2009,41394.0
+Liverpool,2010,42317.5
+Liverpool,2011,43241.0
+Liverpool,2012,44048.0
+Liverpool,2013,45616.0
+Liverpool,2014,46383.0
+Liverpool,2015,47606.0
+Liverpool,2016,48520.0
+Liverpool,2017,49398.0
+Liverpool,2018,50662.0
+Liverpool,2019,52010.0
+Liverpool,2020,53256.0
+Liverpool,2021,53205.0
+Liverpool,2022,52670.0
+Liverpool,2023,57763.0
+Liverpool,2024,60145.9
+Liverpool,2025,63247.37
+Maitland,1990,19479.69
+Maitland,1991,19479.69
+Maitland,1992,21173.57
+Maitland,1993,22867.46
+Maitland,1994,22867.46
+Maitland,1995,24561.34
+Maitland,1996,24561.34
+Maitland,1997,26043.49
+Maitland,1998,27525.64
+Maitland,1999,29643.0
+Maitland,2000,29643.0
+Maitland,2001,30610.0
+Maitland,2002,31845.0
+Maitland,2003,33165.0
+Maitland,2004,32986.0
+Maitland,2005,34283.0
+Maitland,2006,35858.0
+Maitland,2007,37184.0
+Maitland,2008,38694.0
+Maitland,2009,40752.0
+Maitland,2010,40946.0
+Maitland,2011,41140.0
+Maitland,2012,46294.0
+Maitland,2013,48013.0
+Maitland,2014,48450.0
+Maitland,2015,49039.0
+Maitland,2016,49867.0
+Maitland,2017,50863.0
+Maitland,2018,52421.0
+Maitland,2019,54255.0
+Maitland,2020,55483.0
+Maitland,2021,55712.0
+Maitland,2022,56604.0
+Maitland,2023,60930.0
+Maitland,2024,63443.55
+Maitland,2025,66715.06
+Mosman,1990,27977.2
+Mosman,1991,27977.2
+Mosman,1992,30410.0
+Mosman,1993,32842.8
+Mosman,1994,32842.8
+Mosman,1995,35275.6
+Mosman,1996,35275.6
+Mosman,1997,37404.3
+Mosman,1998,39533.0
+Mosman,1999,42574.0
+Mosman,2000,42574.0
+Mosman,2001,44411.0
+Mosman,2002,45173.0
+Mosman,2003,46870.0
+Mosman,2004,45136.0
+Mosman,2005,46694.0
+Mosman,2006,49396.0
+Mosman,2007,50940.0
+Mosman,2008,50885.0
+Mosman,2009,53899.0
+Mosman,2010,47120.5
+Mosman,2011,40342.0
+Mosman,2012,64649.0
+Mosman,2013,67397.0
+Mosman,2014,69455.0
+Mosman,2015,71177.0
+Mosman,2016,74068.0
+Mosman,2017,73822.0
+Mosman,2018,75311.0
+Mosman,2019,77945.0
+Mosman,2020,78073.0
+Mosman,2021,76612.0
+Mosman,2022,81126.0
+Mosman,2023,83702.0
+Mosman,2024,87154.96
+Mosman,2025,91649.17
+Newcastle,1990,20046.8
+Newcastle,1991,20046.8
+Newcastle,1992,21790.0
+Newcastle,1993,23533.2
+Newcastle,1994,23533.2
+Newcastle,1995,25276.4
+Newcastle,1996,25276.4
+Newcastle,1997,26801.7
+Newcastle,1998,28327.0
+Newcastle,1999,30506.0
+Newcastle,2000,30506.0
+Newcastle,2001,31269.0
+Newcastle,2002,32242.0
+Newcastle,2003,33349.0
+Newcastle,2004,32600.0
+Newcastle,2005,33687.0
+Newcastle,2006,35461.0
+Newcastle,2007,36590.0
+Newcastle,2008,37982.0
+Newcastle,2009,39911.0
+Newcastle,2010,40681.5
+Newcastle,2011,41452.0
+Newcastle,2012,45361.0
+Newcastle,2013,47554.0
+Newcastle,2014,48037.0
+Newcastle,2015,48915.0
+Newcastle,2016,49887.0
+Newcastle,2017,50518.0
+Newcastle,2018,52649.0
+Newcastle,2019,54608.0
+Newcastle,2020,55311.0
+Newcastle,2021,56411.0
+Newcastle,2022,57499.0
+Newcastle,2023,61846.0
+Newcastle,2024,64397.33
+Newcastle,2025,67718.03
+North Sydney,1990,27558.6
+North Sydney,1991,27558.6
+North Sydney,1992,29955.0
+North Sydney,1993,32351.4
+North Sydney,1994,32351.4
+North Sydney,1995,34747.8
+North Sydney,1996,34747.8
+North Sydney,1997,36844.65
+North Sydney,1998,38941.5
+North Sydney,1999,41937.0
+North Sydney,2000,41937.0
+North Sydney,2001,44740.0
+North Sydney,2002,45227.0
+North Sydney,2003,46973.0
+North Sydney,2004,46571.0
+North Sydney,2005,48944.0
+North Sydney,2006,50935.0
+North Sydney,2007,52108.0
+North Sydney,2008,54260.0
+North Sydney,2009,56581.0
+North Sydney,2010,52035.5
+North Sydney,2011,47490.0
+North Sydney,2012,63677.0
+North Sydney,2013,66254.0
+North Sydney,2014,68493.0
+North Sydney,2015,70603.0
+North Sydney,2016,72915.0
+North Sydney,2017,73016.0
+North Sydney,2018,76063.0
+North Sydney,2019,79369.0
+North Sydney,2020,80266.0
+North Sydney,2021,81870.0
+North Sydney,2022,86468.0
+North Sydney,2023,88760.0
+North Sydney,2024,92421.62
+North Sydney,2025,97187.41
+Northern Beaches,1990,22299.92
+Northern Beaches,1991,22299.92
+Northern Beaches,1992,24239.05
+Northern Beaches,1993,26178.17
+Northern Beaches,1994,26178.17
+Northern Beaches,1995,28117.3
+Northern Beaches,1996,28117.3
+Northern Beaches,1997,29814.03
+Northern Beaches,1998,31510.76
+Northern Beaches,1999,33934.67
+Northern Beaches,2000,33934.66667
+Northern Beaches,2001,35203.33333
+Northern Beaches,2002,36211.66667
+Northern Beaches,2003,37453.33333
+Northern Beaches,2004,36738.66667
+Northern Beaches,2005,37868.66667
+Northern Beaches,2006,39381.33333
+Northern Beaches,2007,40696.0
+Northern Beaches,2008,42082.0
+Northern Beaches,2009,43964.33333
+Northern Beaches,2010,41741.5
+Northern Beaches,2011,39518.66667
+Northern Beaches,2012,47082.0
+Northern Beaches,2013,49217.0
+Northern Beaches,2014,51299.0
+Northern Beaches,2015,53060.0
+Northern Beaches,2016,54783.0
+Northern Beaches,2017,55499.0
+Northern Beaches,2018,57319.0
+Northern Beaches,2019,59676.0
+Northern Beaches,2020,60749.0
+Northern Beaches,2021,61975.0
+Northern Beaches,2022,64517.0
+Northern Beaches,2023,67899.0
+Northern Beaches,2024,70700.04
+Northern Beaches,2025,74345.74
+Parramatta,1990,21081.8
+Parramatta,1991,21081.8
+Parramatta,1992,22915.0
+Parramatta,1993,24748.2
+Parramatta,1994,24748.2
+Parramatta,1995,26581.4
+Parramatta,1996,26581.4
+Parramatta,1997,28185.45
+Parramatta,1998,29789.5
+Parramatta,1999,32081.0
+Parramatta,2000,32081.0
+Parramatta,2001,32880.0
+Parramatta,2002,33801.0
+Parramatta,2003,34725.0
+Parramatta,2004,34768.0
+Parramatta,2005,35562.0
+Parramatta,2006,36612.0
+Parramatta,2007,37529.0
+Parramatta,2008,38738.0
+Parramatta,2009,40462.0
+Parramatta,2010,40815.0
+Parramatta,2011,41168.0
+Parramatta,2012,43922.0
+Parramatta,2013,45877.0
+Parramatta,2014,47140.0
+Parramatta,2015,48374.0
+Parramatta,2016,49048.0
+Parramatta,2017,49615.0
+Parramatta,2018,50838.0
+Parramatta,2019,52364.0
+Parramatta,2020,53662.0
+Parramatta,2021,55293.0
+Parramatta,2022,57054.0
+Parramatta,2023,61730.0
+Parramatta,2024,64276.55
+Parramatta,2025,67591.02
+Penrith,1990,20849.83
+Penrith,1991,20849.83
+Penrith,1992,22662.86
+Penrith,1993,24475.89
+Penrith,1994,24475.89
+Penrith,1995,26288.91
+Penrith,1996,26288.91
+Penrith,1997,27875.31
+Penrith,1998,29461.71
+Penrith,1999,31728.0
+Penrith,2000,31728.0
+Penrith,2001,32617.0
+Penrith,2002,33615.0
+Penrith,2003,34811.0
+Penrith,2004,35584.0
+Penrith,2005,36736.0
+Penrith,2006,37974.0
+Penrith,2007,39186.0
+Penrith,2008,40828.0
+Penrith,2009,42730.0
+Penrith,2010,43620.0
+Penrith,2011,44510.0
+Penrith,2012,46503.0
+Penrith,2013,48392.0
+Penrith,2014,49442.0
+Penrith,2015,50776.0
+Penrith,2016,52203.0
+Penrith,2017,53200.0
+Penrith,2018,54688.0
+Penrith,2019,56488.0
+Penrith,2020,57740.0
+Penrith,2021,58362.0
+Penrith,2022,59010.0
+Penrith,2023,63669.0
+Penrith,2024,66295.54
+Penrith,2025,69714.12
+Port Stephens,1990,18742.37
+Port Stephens,1991,18742.37
+Port Stephens,1992,20372.14
+Port Stephens,1993,22001.91
+Port Stephens,1994,22001.91
+Port Stephens,1995,23631.69
+Port Stephens,1996,23631.69
+Port Stephens,1997,25057.74
+Port Stephens,1998,26483.79
+Port Stephens,1999,28521.0
+Port Stephens,2000,28521.0
+Port Stephens,2001,28960.0
+Port Stephens,2002,30181.0
+Port Stephens,2003,30955.0
+Port Stephens,2004,29887.0
+Port Stephens,2005,30867.0
+Port Stephens,2006,32090.0
+Port Stephens,2007,33050.0
+Port Stephens,2008,34460.0
+Port Stephens,2009,36721.0
+Port Stephens,2010,37454.0
+Port Stephens,2011,38187.0
+Port Stephens,2012,39612.0
+Port Stephens,2013,40862.0
+Port Stephens,2014,41320.0
+Port Stephens,2015,41887.0
+Port Stephens,2016,42711.0
+Port Stephens,2017,43723.0
+Port Stephens,2018,45086.0
+Port Stephens,2019,46338.0
+Port Stephens,2020,46676.0
+Port Stephens,2021,46798.0
+Port Stephens,2022,47480.0
+Port Stephens,2023,51766.0
+Port Stephens,2024,53901.5
+Port Stephens,2025,56680.98
+Randwick,1990,21655.49
+Randwick,1991,21655.49
+Randwick,1992,23538.57
+Randwick,1993,25421.66
+Randwick,1994,25421.66
+Randwick,1995,27304.74
+Randwick,1996,27304.74
+Randwick,1997,28952.44
+Randwick,1998,30600.14
+Randwick,1999,32954.0
+Randwick,2000,32954.0
+Randwick,2001,34323.0
+Randwick,2002,35420.0
+Randwick,2003,37157.0
+Randwick,2004,36643.0
+Randwick,2005,38363.0
+Randwick,2006,40042.0
+Randwick,2007,41728.0
+Randwick,2008,43258.0
+Randwick,2009,45501.0
+Randwick,2010,44110.0
+Randwick,2011,42719.0
+Randwick,2012,50487.0
+Randwick,2013,52474.0
+Randwick,2014,54458.0
+Randwick,2015,56143.0
+Randwick,2016,57927.0
+Randwick,2017,58787.0
+Randwick,2018,60208.0
+Randwick,2019,62478.0
+Randwick,2020,63696.0
+Randwick,2021,65831.0
+Randwick,2022,67516.0
+Randwick,2023,69078.0
+Randwick,2024,71927.67
+Randwick,2025,75636.68
+Ryde,1990,22736.49
+Ryde,1991,22736.49
+Ryde,1992,24713.57
+Ryde,1993,26690.66
+Ryde,1994,26690.66
+Ryde,1995,28667.74
+Ryde,1996,28667.74
+Ryde,1997,30397.69
+Ryde,1998,32127.64
+Ryde,1999,34599.0
+Ryde,2000,34599.0
+Ryde,2001,35743.0
+Ryde,2002,36564.0
+Ryde,2003,37296.0
+Ryde,2004,37257.0
+Ryde,2005,38325.0
+Ryde,2006,39515.0
+Ryde,2007,40403.0
+Ryde,2008,41702.0
+Ryde,2009,43981.0
+Ryde,2010,43065.0
+Ryde,2011,42149.0
+Ryde,2012,45771.0
+Ryde,2013,47778.0
+Ryde,2014,48681.0
+Ryde,2015,49764.0
+Ryde,2016,50529.0
+Ryde,2017,51386.0
+Ryde,2018,52784.0
+Ryde,2019,54872.0
+Ryde,2020,56105.0
+Ryde,2021,57941.0
+Ryde,2022,60401.0
+Ryde,2023,64077.0
+Ryde,2024,66720.37
+Ryde,2025,70160.86
+Shellharbour,1990,20129.6
+Shellharbour,1991,20129.6
+Shellharbour,1992,21880.0
+Shellharbour,1993,23630.4
+Shellharbour,1994,23630.4
+Shellharbour,1995,25380.8
+Shellharbour,1996,25380.8
+Shellharbour,1997,26912.4
+Shellharbour,1998,28444.0
+Shellharbour,1999,30632.0
+Shellharbour,2000,30632.0
+Shellharbour,2001,31272.0
+Shellharbour,2002,32434.0
+Shellharbour,2003,33700.0
+Shellharbour,2004,33602.0
+Shellharbour,2005,34703.0
+Shellharbour,2006,35941.0
+Shellharbour,2007,37122.0
+Shellharbour,2008,38192.0
+Shellharbour,2009,40122.0
+Shellharbour,2010,40395.0
+Shellharbour,2011,40668.0
+Shellharbour,2012,42585.0
+Shellharbour,2013,43825.0
+Shellharbour,2014,45007.0
+Shellharbour,2015,46026.0
+Shellharbour,2016,47630.0
+Shellharbour,2017,48002.0
+Shellharbour,2018,49780.0
+Shellharbour,2019,51595.0
+Shellharbour,2020,52593.0
+Shellharbour,2021,53079.0
+Shellharbour,2022,54475.0
+Shellharbour,2023,58886.0
+Shellharbour,2024,61315.22
+Shellharbour,2025,64476.99
+Strathfield,1990,19900.26
+Strathfield,1991,19900.26
+Strathfield,1992,21630.71
+Strathfield,1993,23361.17
+Strathfield,1994,23361.17
+Strathfield,1995,25091.63
+Strathfield,1996,25091.63
+Strathfield,1997,26605.78
+Strathfield,1998,28119.93
+Strathfield,1999,30283.0
+Strathfield,2000,30283.0
+Strathfield,2001,31006.0
+Strathfield,2002,32082.0
+Strathfield,2003,32699.0
+Strathfield,2004,31239.0
+Strathfield,2005,31331.0
+Strathfield,2006,32483.0
+Strathfield,2007,33237.0
+Strathfield,2008,34175.0
+Strathfield,2009,35562.0
+Strathfield,2010,35905.0
+Strathfield,2011,36248.0
+Strathfield,2012,41234.0
+Strathfield,2013,43824.0
+Strathfield,2014,44651.0
+Strathfield,2015,45359.0
+Strathfield,2016,46095.0
+Strathfield,2017,46344.0
+Strathfield,2018,46484.0
+Strathfield,2019,46719.0
+Strathfield,2020,48294.0
+Strathfield,2021,51469.0
+Strathfield,2022,52984.0
+Strathfield,2023,58090.0
+Strathfield,2024,60486.39
+Strathfield,2025,63605.42
+Sutherland Shire,1990,22688.51
+Sutherland Shire,1991,22688.51
+Sutherland Shire,1992,24661.43
+Sutherland Shire,1993,26634.34
+Sutherland Shire,1994,26634.34
+Sutherland Shire,1995,28607.26
+Sutherland Shire,1996,28607.26
+Sutherland Shire,1997,30333.56
+Sutherland Shire,1998,32059.86
+Sutherland Shire,1999,34526.0
+Sutherland Shire,2000,34526.0
+Sutherland Shire,2001,35860.0
+Sutherland Shire,2002,36520.0
+Sutherland Shire,2003,37915.0
+Sutherland Shire,2004,37861.0
+Sutherland Shire,2005,39154.0
+Sutherland Shire,2006,40492.0
+Sutherland Shire,2007,41277.0
+Sutherland Shire,2008,42939.0
+Sutherland Shire,2009,44888.0
+Sutherland Shire,2010,44014.0
+Sutherland Shire,2011,43140.0
+Sutherland Shire,2012,48237.0
+Sutherland Shire,2013,50098.0
+Sutherland Shire,2014,51522.0
+Sutherland Shire,2015,52887.0
+Sutherland Shire,2016,54766.0
+Sutherland Shire,2017,55840.0
+Sutherland Shire,2018,57835.0
+Sutherland Shire,2019,60106.0
+Sutherland Shire,2020,61414.0
+Sutherland Shire,2021,62542.0
+Sutherland Shire,2022,64637.0
+Sutherland Shire,2023,69239.0
+Sutherland Shire,2024,72095.32
+Sutherland Shire,2025,75812.97
+Sydney,1990,16465.37
+Sydney,1991,16465.37
+Sydney,1992,17897.14
+Sydney,1993,19328.91
+Sydney,1994,19328.91
+Sydney,1995,20760.69
+Sydney,1996,20760.69
+Sydney,1997,22013.49
+Sydney,1998,23266.29
+Sydney,1999,25056.0
+Sydney,2000,25056.0
+Sydney,2001,24808.0
+Sydney,2002,28408.0
+Sydney,2003,32333.0
+Sydney,2004,34354.0
+Sydney,2005,35043.0
+Sydney,2006,34927.0
+Sydney,2007,34737.0
+Sydney,2008,36667.0
+Sydney,2009,39004.0
+Sydney,2010,36232.0
+Sydney,2011,33460.0
+Sydney,2012,46859.0
+Sydney,2013,49443.0
+Sydney,2014,51272.0
+Sydney,2015,52536.0
+Sydney,2016,53393.0
+Sydney,2017,50289.0
+Sydney,2018,54628.0
+Sydney,2019,57331.0
+Sydney,2020,59401.0
+Sydney,2021,62586.0
+Sydney,2022,65875.0
+Sydney,2023,65191.0
+Sydney,2024,67880.32
+Sydney,2025,71380.63
+The Hills Shire,1990,21081.8
+The Hills Shire,1991,21081.8
+The Hills Shire,1992,22915.0
+The Hills Shire,1993,24748.2
+The Hills Shire,1994,24748.2
+The Hills Shire,1995,26581.4
+The Hills Shire,1996,26581.4
+The Hills Shire,1997,28185.45
+The Hills Shire,1998,29789.5
+The Hills Shire,1999,32081.0
+The Hills Shire,2000,32081.0
+The Hills Shire,2001,35967.0
+The Hills Shire,2002,37333.0
+The Hills Shire,2003,38408.0
+The Hills Shire,2004,38479.0
+The Hills Shire,2005,39654.0
+The Hills Shire,2006,41228.0
+The Hills Shire,2007,42342.0
+The Hills Shire,2008,43475.0
+The Hills Shire,2009,45978.0
+The Hills Shire,2010,46979.333333333336
+The Hills Shire,2011,47980.66666666666
+The Hills Shire,2012,48982.0
+The Hills Shire,2013,50854.0
+The Hills Shire,2014,52019.0
+The Hills Shire,2015,53238.0
+The Hills Shire,2016,54352.0
+The Hills Shire,2017,55458.0
+The Hills Shire,2018,56709.0
+The Hills Shire,2019,59288.0
+The Hills Shire,2020,60756.0
+The Hills Shire,2021,62856.0
+The Hills Shire,2022,66141.0
+The Hills Shire,2023,70634.0
+The Hills Shire,2024,73547.86
+The Hills Shire,2025,77340.42
+Waverley,1990,21698.86
+Waverley,1991,21698.86
+Waverley,1992,23585.71
+Waverley,1993,25472.57
+Waverley,1994,25472.57
+Waverley,1995,27359.43
+Waverley,1996,27359.43
+Waverley,1997,29010.43
+Waverley,1998,30661.43
+Waverley,1999,33020.0
+Waverley,2000,33020.0
+Waverley,2001,33713.0
+Waverley,2002,35569.0
+Waverley,2003,38416.0
+Waverley,2004,36698.0
+Waverley,2005,38282.0
+Waverley,2006,40663.0
+Waverley,2007,42371.0
+Waverley,2008,43950.0
+Waverley,2009,46035.0
+Waverley,2010,42793.5
+Waverley,2011,39552.0
+Waverley,2012,51365.0
+Waverley,2013,54021.0
+Waverley,2014,56744.0
+Waverley,2015,59007.0
+Waverley,2016,60276.0
+Waverley,2017,60566.0
+Waverley,2018,63934.0
+Waverley,2019,66137.0
+Waverley,2020,67914.0
+Waverley,2021,71745.0
+Waverley,2022,75386.0
+Waverley,2023,75746.0
+Waverley,2024,78870.75
+Waverley,2025,82937.78
+Willoughby,1990,25068.03
+Willoughby,1991,25068.03
+Willoughby,1992,27247.86
+Willoughby,1993,29427.69
+Willoughby,1994,29427.69
+Willoughby,1995,31607.51
+Willoughby,1996,31607.51
+Willoughby,1997,33514.86
+Willoughby,1998,35422.21
+Willoughby,1999,38147.0
+Willoughby,2000,38147.0
+Willoughby,2001,39901.0
+Willoughby,2002,40411.0
+Willoughby,2003,41642.0
+Willoughby,2004,40956.0
+Willoughby,2005,42608.0
+Willoughby,2006,43815.0
+Willoughby,2007,44973.0
+Willoughby,2008,46242.0
+Willoughby,2009,48245.0
+Willoughby,2010,44393.0
+Willoughby,2011,40541.0
+Willoughby,2012,52928.0
+Willoughby,2013,54904.0
+Willoughby,2014,55563.0
+Willoughby,2015,57787.0
+Willoughby,2016,58386.0
+Willoughby,2017,58964.0
+Willoughby,2018,60792.0
+Willoughby,2019,63257.0
+Willoughby,2020,63847.0
+Willoughby,2021,64689.0
+Willoughby,2022,67384.0
+Willoughby,2023,70612.0
+Willoughby,2024,73524.96
+Willoughby,2025,77316.33
+Wollondilly,1990,20981.26
+Wollondilly,1991,20981.26
+Wollondilly,1992,22805.71
+Wollondilly,1993,24630.17
+Wollondilly,1994,24630.17
+Wollondilly,1995,26454.63
+Wollondilly,1996,26454.63
+Wollondilly,1997,28051.03
+Wollondilly,1998,29647.43
+Wollondilly,1999,31928.0
+Wollondilly,2000,31928.0
+Wollondilly,2001,32725.0
+Wollondilly,2002,33609.0
+Wollondilly,2003,34760.0
+Wollondilly,2004,35076.0
+Wollondilly,2005,36162.0
+Wollondilly,2006,37443.0
+Wollondilly,2007,38703.0
+Wollondilly,2008,39806.0
+Wollondilly,2009,41633.0
+Wollondilly,2010,42369.0
+Wollondilly,2011,43105.0
+Wollondilly,2012,45336.0
+Wollondilly,2013,47406.0
+Wollondilly,2014,48820.0
+Wollondilly,2015,50412.0
+Wollondilly,2016,51983.0
+Wollondilly,2017,53109.0
+Wollondilly,2018,54811.0
+Wollondilly,2019,56513.0
+Wollondilly,2020,57942.0
+Wollondilly,2021,58500.0
+Wollondilly,2022,59747.0
+Wollondilly,2023,64204.0
+Wollondilly,2024,66852.61
+Wollondilly,2025,70299.92
+Wollongong,1990,21067.34
+Wollongong,1991,21067.34
+Wollongong,1992,22899.29
+Wollongong,1993,24731.23
+Wollongong,1994,24731.23
+Wollongong,1995,26563.17
+Wollongong,1996,26563.17
+Wollongong,1997,28166.12
+Wollongong,1998,29769.07
+Wollongong,1999,32059.0
+Wollongong,2000,32059.0
+Wollongong,2001,32844.0
+Wollongong,2002,33941.0
+Wollongong,2003,35072.0
+Wollongong,2004,34890.0
+Wollongong,2005,35952.0
+Wollongong,2006,37230.0
+Wollongong,2007,38237.0
+Wollongong,2008,39358.0
+Wollongong,2009,41246.0
+Wollongong,2010,41126.0
+Wollongong,2011,41006.0
+Wollongong,2012,43261.0
+Wollongong,2013,44856.0
+Wollongong,2014,46007.0
+Wollongong,2015,47069.0
+Wollongong,2016,48236.0
+Wollongong,2017,48784.0
+Wollongong,2018,50484.0
+Wollongong,2019,52646.0
+Wollongong,2020,53164.0
+Wollongong,2021,53422.0
+Wollongong,2022,55061.0
+Wollongong,2023,58764.0
+Wollongong,2024,61188.19
+Wollongong,2025,64343.41
+Woollahra,1990,24972.74
+Woollahra,1991,24972.74
+Woollahra,1992,27144.29
+Woollahra,1993,29315.83
+Woollahra,1994,29315.83
+Woollahra,1995,31487.37
+Woollahra,1996,31487.37
+Woollahra,1997,33387.47
+Woollahra,1998,35287.57
+Woollahra,1999,38002.0
+Woollahra,2000,38002.0
+Woollahra,2001,40224.0
+Woollahra,2002,41595.0
+Woollahra,2003,44008.0
+Woollahra,2004,41683.0
+Woollahra,2005,43857.0
+Woollahra,2006,45626.0
+Woollahra,2007,46335.0
+Woollahra,2008,47144.0
+Woollahra,2009,49155.0
+Woollahra,2010,45145.5
+Woollahra,2011,41136.0
+Woollahra,2012,64183.0
+Woollahra,2013,66260.0
+Woollahra,2014,68760.0
+Woollahra,2015,72019.0
+Woollahra,2016,74076.0
+Woollahra,2017,75084.0
+Woollahra,2018,77159.0
+Woollahra,2019,80245.0
+Woollahra,2020,81096.0
+Woollahra,2021,81800.0
+Woollahra,2022,87437.0
+Woollahra,2023,88612.0
+Woollahra,2024,92267.51
+Woollahra,2025,97025.36

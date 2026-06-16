@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Priced Out of the Classroom — NSW Teacher Housing Affordability</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0B1120;--ink2:#111827;--ink3:#1b2537;
+  --slate:#8A9BB0;--cream:#F0EDE6;--cream2:#C8C4BC;
+  --red:#E8402A;--teal:#2ABFBF;
+  --border:rgba(138,155,176,0.15);
+  --font:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --serif:'DM Serif Display',Georgia,serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--font);font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:300;height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(11,17,32,.9);backdrop-filter:blur(16px);border-bottom:.5px solid var(--border)}
+.nav-brand{font-family:var(--serif);font-size:14px}
+.nav-tabs{display:flex;gap:2px;list-style:none;background:rgba(255,255,255,.05);border-radius:8px;padding:3px}
+.nav-tabs a{display:block;font-size:11px;font-weight:500;color:var(--slate);text-decoration:none;padding:5px 14px;border-radius:6px;letter-spacing:.05em;text-transform:uppercase;transition:background .15s,color .15s}
+.nav-tabs a:hover{color:var(--cream)}
+.nav-tabs a.on{background:rgba(42,191,191,.18);color:var(--teal)}
+
+/* HERO */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:90px 2.5rem 5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 65% 35%,rgba(42,191,191,.07) 0,transparent 70%),radial-gradient(ellipse 45% 35% at 15% 75%,rgba(232,64,42,.05) 0,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1060px;margin:0 auto;width:100%}
+.eyebrow{font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.5rem}
+h1.display{font-family:var(--serif);font-size:clamp(3.2rem,7.5vw,7rem);line-height:1.01;margin-bottom:2rem}
+h1.display em{color:var(--red);font-style:italic}
+.hero-sub{font-size:16px;color:var(--slate);max-width:540px;line-height:1.75;margin-bottom:3.5rem}
+.stats{display:flex;gap:3rem;flex-wrap:wrap}
+.stat{border-left:1.5px solid var(--red);padding-left:1.2rem}
+.stat-n{font-family:var(--mono);font-size:2.1rem;font-weight:500;line-height:1;color:var(--cream)}
+.stat-l{font-size:11px;color:var(--slate);margin-top:3px}
+
+/* DIVIDER */
+.div{width:100%;height:.5px;background:var(--border)}
+
+/* SECTIONS */
+.sec{padding:5rem 2.5rem;max-width:1100px;margin:0 auto}
+.sec-full{padding:5rem 0;background:var(--ink2)}
+.sec-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem}
+.sec-ey{font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+h2.sec-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;margin-bottom:.6rem}
+.sec-desc{font-size:13px;color:var(--slate);max-width:620px;line-height:1.7;margin-bottom:1.75rem}
+
+/* CONTROLS */
+.cbar{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.25rem;align-items:flex-end}
+.cg{display:flex;flex-direction:column;gap:4px}
+.clabel{font-family:var(--mono);font-size:9px;color:var(--slate);letter-spacing:.1em;text-transform:uppercase}
+.seg{display:flex;border:.5px solid var(--border);border-radius:6px;overflow:hidden}
+.seg button{padding:6px 15px;font-size:12px;font-weight:500;font-family:var(--font);background:transparent;border:none;border-right:.5px solid var(--border);cursor:pointer;color:var(--slate);transition:background .12s,color .12s;white-space:nowrap}
+.seg button:last-child{border-right:none}
+.seg button.on{background:rgba(42,191,191,.14);color:var(--teal)}
+.pills{display:flex;flex-wrap:wrap;gap:5px}
+.pill{padding:5px 12px;font-size:12px;font-weight:500;font-family:var(--font);border:.5px solid var(--border);border-radius:999px;cursor:pointer;background:transparent;color:var(--slate);transition:all .12s;white-space:nowrap}
+.pill:hover{border-color:var(--teal);color:var(--teal)}
+.pill.on{background:rgba(42,191,191,.14);border-color:rgba(42,191,191,.4);color:var(--teal)}
+
+/* ANIMATION PLAYER */
+.player{background:var(--ink2);border:.5px solid var(--border);border-radius:12px;overflow:hidden}
+.player-hd{padding:.8rem 1.25rem;border-bottom:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.player-badge{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase}
+.player-fn{font-family:var(--mono);font-size:11px;color:var(--slate);background:var(--ink3);padding:3px 9px;border-radius:4px;border:.5px solid var(--border)}
+video{display:block;width:100%;max-height:540px;background:#000}
+.empty-v{display:flex;align-items:center;justify-content:center;min-height:300px;color:var(--slate);font-size:13px;flex-direction:column;gap:10px}
+
+/* CHART PANEL */
+.chart-panel{background:var(--ink2);border:.5px solid var(--border);border-radius:12px;overflow:hidden}
+.chart-hd{padding:1.1rem 1.5rem;border-bottom:.5px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.chart-title{font-family:var(--serif);font-size:1.4rem;color:var(--cream)}
+.chart-meta{font-size:12px;color:var(--slate);margin-top:2px}
+.chart-body{padding:1.5rem}
+
+/* LGA EXPLORER LAYOUT */
+.lga-layout{display:grid;grid-template-columns:240px 1fr;gap:1.75rem;align-items:start}
+.lga-side{display:flex;flex-direction:column;gap:.875rem;position:sticky;top:60px}
+.search-wrap{position:relative}
+.search-ic{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--slate);pointer-events:none}
+input.lga-search{width:100%;background:var(--ink2);border:.5px solid var(--border);border-radius:7px;padding:.55rem 1rem .55rem 2.2rem;color:var(--cream);font-family:var(--font);font-size:13px;outline:none;transition:border-color .15s}
+input.lga-search:focus{border-color:var(--teal)}
+input.lga-search::placeholder{color:var(--slate)}
+.lga-list{max-height:400px;overflow-y:auto;border:.5px solid var(--border);border-radius:7px;background:var(--ink2)}
+.lga-list::-webkit-scrollbar{width:3px}
+.lga-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.lga-item{padding:.45rem 1rem;font-size:13px;color:var(--slate);cursor:pointer;border-bottom:.5px solid rgba(138,155,176,.06);transition:background .1s,color .1s}
+.lga-item:last-child{border-bottom:none}
+.lga-item:hover{background:rgba(42,191,191,.06);color:var(--cream)}
+.lga-item.sel{background:rgba(42,191,191,.1);color:var(--teal);font-weight:500}
+.chart-empty{display:flex;align-items:center;justify-content:center;min-height:320px;color:var(--slate);font-size:13px;flex-direction:column;gap:10px}
+
+/* AFFORDABILITY LEGEND (line chart) */
+.aff-legend{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
+.aff-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--slate)}
+.aff-dot{width:10px;height:10px;border-radius:50%}
+
+/* CHOROPLETH */
+.choro-layout{display:grid;grid-template-columns:260px 1fr;min-height:580px}
+.choro-sidebar{padding:1.75rem 1.5rem;border-right:.5px solid var(--border);display:flex;flex-direction:column;gap:1.25rem}
+.choro-area{position:relative;overflow:hidden}
+#choro-svg{width:100%;height:100%;min-height:520px}
+.mtt{position:absolute;background:var(--ink);border:.5px solid var(--border);border-radius:8px;padding:.75rem 1rem;pointer-events:none;display:none;font-size:12px;min-width:180px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.mtt-name{font-family:var(--serif);font-size:15px;color:var(--cream);margin-bottom:3px}
+.mtt-val{font-family:var(--mono);font-size:13px;color:var(--teal)}
+.mtt-sub{font-size:11px;color:var(--slate);margin-top:3px}
+.mtt-zone{font-size:11px;font-weight:500;margin-top:4px;padding:2px 8px;border-radius:4px;display:inline-block;width:fit-content}
+
+/* AFFORDABILITY ZONE LEGEND */
+.zone-legend{padding:1.25rem 1.5rem;border-top:.5px solid var(--border)}
+.zone-items{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem}
+.zone-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--slate)}
+.zone-swatch{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+
+/* SELECT styling */
+select.ctrl-select{background:var(--ink2);border:.5px solid var(--border);border-radius:6px;padding:7px 12px;color:var(--cream);font-family:var(--font);font-size:12px;cursor:pointer;outline:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238A9BB0'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+
+footer{border-top:.5px solid var(--border);padding:3rem 2.5rem;text-align:center}
+footer p{font-size:13px;color:var(--slate);line-height:1.8}
+footer a{color:var(--teal);text-decoration:none}
+footer strong{color:var(--cream)}
+
+@media(max-width:800px){
+  .choro-layout,.lga-layout{grid-template-columns:1fr}
+  .choro-sidebar{border-right:none;border-bottom:.5px solid var(--border)}
+  .lga-side{position:static}
+  .stats{gap:1.5rem}
+  .nav-tabs{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Priced Out of the Classroom</span>
+  <ul class="nav-tabs">
+    <li><a href="#animations" id="nt-a">Animations</a></li>
+    <li><a href="#explorer" id="nt-e">LGA Explorer</a></li>
+    <li><a href="#map" id="nt-m">Choropleth</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="eyebrow">HATS Lab · UNSW Sydney · 2026</div>
+    <h1 class="display">Priced <em>out</em> of<br>the classroom</h1>
+    <p class="hero-sub">Housing affordability for NSW teachers across 35 years of rental and sales data. Supplementary interactive material for Eacott &amp; Garg (2026).</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">35</div><div class="stat-l">years of data<br>1990–2025</div></div>
+      <div class="stat"><div class="stat-n">42</div><div class="stat-l">consistent NSW<br>LGAs (1990–2025)</div></div>
+      <div class="stat"><div class="stat-n">108</div><div class="stat-l">KDE animations<br>statewide</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 1: ANIMATIONS -->
+<section class="sec" id="animations">
+  <div class="sec-ey">01 — Statewide distributions</div>
+  <h2 class="sec-title">Jellyfish animations</h2>
+  <p class="sec-desc">Animated KDE distributions showing housing cost distributions relative to teacher salary thresholds, 1990–2025. Each frame is one quarter across 42 consistent LGAs.</p>
+
+  <div class="cbar">
+    <div class="cg">
+      <div class="clabel">Market</div>
+      <div class="seg">
+        <button class="on" onclick="A.seg('market','rent',this)">Rent</button>
+        <button onclick="A.seg('market','sales',this)">Sales</button>
+      </div>
+    </div>
+    <div class="cg">
+      <div class="clabel">Income scenario</div>
+      <div class="seg">
+        <button class="on" onclick="A.seg('income','graduate',this)">Graduate</button>
+        <button onclick="A.seg('income','topscale',this)">Top scale</button>
+        <button onclick="A.seg('income','combined',this)">Combined</button>
+      </div>
+    </div>
+    <div class="cg">
+      <div class="clabel">Household</div>
+      <div class="seg">
+        <button class="on" onclick="A.seg('hh','solo',this)">Solo</button>
+        <button onclick="A.seg('hh','household',this)">Household</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="a-rent-opts" style="margin-bottom:1.25rem">
+    <div class="cbar">
+      <div class="cg">
+        <div class="clabel">Dwelling</div>
+        <div class="pills" id="a-p-dw">
+          <button class="pill on" onclick="A.pill('dwelling','flat',this,'a-p-dw')">Flat / unit</button>
+          <button class="pill" onclick="A.pill('dwelling','house',this,'a-p-dw')">House</button>
+          <button class="pill" onclick="A.pill('dwelling','total',this,'a-p-dw')">All</button>
+        </div>
+      </div>
+      <div class="cg">
+        <div class="clabel">Bedrooms</div>
+        <div class="pills" id="a-p-bed">
+          <button class="pill on" onclick="A.pill('bed','1br',this,'a-p-bed')">1 bed</button>
+          <button class="pill" onclick="A.pill('bed','2br',this,'a-p-bed')">2 bed</button>
+          <button class="pill" onclick="A.pill('bed','3br',this,'a-p-bed')">3 bed</button>
+          <button class="pill" onclick="A.pill('bed','4br',this,'a-p-bed')">4+</button>
+          <button class="pill" onclick="A.pill('bed','total',this,'a-p-bed')">All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="a-sales-opts" style="display:none;margin-bottom:1.25rem">
+    <div class="cg">
+      <div class="clabel">Property type</div>
+      <div class="pills" id="a-p-st">
+        <button class="pill on" onclick="A.pill('strata','nonstrata',this,'a-p-st')">Non-strata</button>
+        <button class="pill" onclick="A.pill('strata','strata',this,'a-p-st')">Strata</button>
+        <button class="pill" onclick="A.pill('strata','total',this,'a-p-st')">All</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="player">
+    <div class="player-hd">
+      <span class="player-badge">▶ KDE Animation</span>
+      <span class="player-fn" id="a-fn">—</span>
+    </div>
+    <div id="a-body">
+      <div class="empty-v">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
+        Select options above to load animation
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 2: LGA EXPLORER -->
+<section class="sec" id="explorer">
+  <div class="sec-ey">02 — Local detail</div>
+  <h2 class="sec-title">LGA time-series explorer</h2>
+  <p class="sec-desc">Track rent or sales prices for any NSW LGA across time, with teacher affordability threshold lines overlaid. Pre-2017 data covers 42 consistent metro LGAs; post-2017 covers all 139 LGAs.</p>
+
+  <div class="cbar" style="margin-bottom:1.5rem">
+    <div class="cg">
+      <div class="clabel">Market</div>
+      <div class="seg">
+        <button class="on" onclick="E.seg('market','rent',this)">Rent</button>
+        <button onclick="E.seg('market','sales',this)">Sales</button>
+      </div>
+    </div>
+    <div class="cg" id="e-dw-grp">
+      <div class="clabel">Dwelling</div>
+      <div class="pills" id="e-p-dw">
+        <button class="pill on" onclick="E.pill('dwelling','Flat/Unit',this,'e-p-dw')">Flat/unit</button>
+        <button class="pill" onclick="E.pill('dwelling','House',this,'e-p-dw')">House</button>
+        <button class="pill" onclick="E.pill('dwelling','Total',this,'e-p-dw')">All</button>
+      </div>
+    </div>
+    <div class="cg" id="e-bed-grp">
+      <div class="clabel">Bedrooms</div>
+      <div class="pills" id="e-p-bed">
+        <button class="pill on" onclick="E.pill('bed','1 Bedroom',this,'e-p-bed')">1 bed</button>
+        <button class="pill" onclick="E.pill('bed','2 Bedrooms',this,'e-p-bed')">2 bed</button>
+        <button class="pill" onclick="E.pill('bed','3 Bedrooms',this,'e-p-bed')">3 bed</button>
+        <button class="pill" onclick="E.pill('bed','4 or more Bedrooms',this,'e-p-bed')">4+</button>
+        <button class="pill" onclick="E.pill('bed','Total',this,'e-p-bed')">All</button>
+      </div>
+    </div>
+    <div class="cg" id="e-st-grp" style="display:none">
+      <div class="clabel">Property type</div>
+      <div class="pills" id="e-p-st">
+        <button class="pill on" onclick="E.pill('strata','Non Strata',this,'e-p-st')">Non-strata</button>
+        <button class="pill" onclick="E.pill('strata','Strata',this,'e-p-st')">Strata</button>
+        <button class="pill" onclick="E.pill('strata','Total',this,'e-p-st')">All</button>
+      </div>
+    </div>
+    <div class="cg">
+      <div class="clabel">Threshold lines</div>
+      <div class="seg">
+        <button class="on" onclick="E.seg('showThresh','both',this)">Both</button>
+        <button onclick="E.seg('showThresh','graduate',this)">Graduate</button>
+        <button onclick="E.seg('showThresh','topscale',this)">Top scale</button>
+        <button onclick="E.seg('showThresh','none',this)">None</button>
+      </div>
+    </div>
+    <div class="cg">
+      <div class="clabel">Household type</div>
+      <div class="seg">
+        <button class="on" onclick="E.seg('hhMode','solo',this)">Solo</button>
+        <button onclick="E.seg('hhMode','household',this)">Household</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lga-layout">
+    <div class="lga-side">
+      <div class="search-wrap">
+        <svg class="search-ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input class="lga-search" id="lga-inp" type="text" placeholder="Search LGA…" oninput="E.filter(this.value)"/>
+      </div>
+      <div class="lga-list" id="lga-list"></div>
+      <div style="font-size:11px;color:var(--slate);line-height:1.6;padding:.5rem 0">
+        <span style="color:var(--teal)">·</span> Pre-2017: 42 metro LGAs<br>
+        <span style="color:var(--teal)">·</span> Post-2017: all 139 LGAs
+      </div>
+    </div>
+
+    <div>
+      <div class="chart-panel">
+        <div class="chart-hd">
+          <div>
+            <div class="chart-title" id="c-lga">Select an LGA</div>
+            <div class="chart-meta" id="c-meta">Choose from the list on the left to view its history</div>
+          </div>
+        </div>
+        <div class="chart-body">
+          <div class="chart-empty" id="c-empty">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 3v18h18"/><path d="m7 16 4-4 4 4 4-4"/></svg>
+            Select an LGA to view its price history
+          </div>
+          <canvas id="c-canvas" style="display:none"></canvas>
+        </div>
+      </div>
+      <div class="aff-legend" id="aff-legend" style="display:none">
+        <div class="aff-item"><div class="aff-dot" style="background:#f5c518"></div><span>Graduate threshold (30% salary / 3× salary)</span></div>
+        <div class="aff-item"><div class="aff-dot" style="background:#ff8c00"></div><span>Top of Scale threshold</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 3: CHOROPLETH -->
+<div class="sec-full" id="map">
+  <div class="sec-inner" style="padding-bottom:1.75rem">
+    <div class="sec-ey">03 — Spatial overview</div>
+    <h2 class="sec-title">NSW affordability map</h2>
+    <p class="sec-desc">Affordability by LGA for 2017–2025, coloured by SGS/Demographia severity zones. Select a year and quarter, then click any LGA to jump to its time-series in the explorer above.</p>
+  </div>
+
+  <div style="border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+    <div class="choro-layout">
+
+      <div class="choro-sidebar">
+        <div>
+          <div class="clabel" style="margin-bottom:5px">Market</div>
+          <div class="seg" style="width:100%">
+            <button class="on" style="flex:1" onclick="C.seg('market','rent',this)">Rent</button>
+            <button style="flex:1" onclick="C.seg('market','sales',this)">Sales</button>
+          </div>
+        </div>
+
+        <div id="c-rent-opts">
+          <div class="clabel" style="margin-bottom:5px">Dwelling</div>
+          <div class="pills" id="c-p-dw">
+            <button class="pill on" onclick="C.pill('dwelling','Flat/Unit',this,'c-p-dw')">Flat/unit</button>
+            <button class="pill" onclick="C.pill('dwelling','House',this,'c-p-dw')">House</button>
+            <button class="pill" onclick="C.pill('dwelling','Total',this,'c-p-dw')">All</button>
+          </div>
+          <div class="clabel" style="margin-bottom:5px;margin-top:1rem">Bedrooms</div>
+          <div class="pills" id="c-p-bed">
+            <button class="pill on" onclick="C.pill('bed','1 Bedroom',this,'c-p-bed')">1 bed</button>
+            <button class="pill" onclick="C.pill('bed','2 Bedrooms',this,'c-p-bed')">2 bed</button>
+            <button class="pill" onclick="C.pill('bed','3 Bedrooms',this,'c-p-bed')">3 bed</button>
+            <button class="pill" onclick="C.pill('bed','4 or more Bedrooms',this,'c-p-bed')">4+</button>
+            <button class="pill" onclick="C.pill('bed','Total',this,'c-p-bed')">All</button>
+          </div>
+        </div>
+
+        <div id="c-sales-opts" style="display:none">
+          <div class="clabel" style="margin-bottom:5px">Property type</div>
+          <div class="pills" id="c-p-st">
+            <button class="pill on" onclick="C.pill('strata','Non Strata',this,'c-p-st')">Non-strata</button>
+            <button class="pill" onclick="C.pill('strata','Strata',this,'c-p-st')">Strata</button>
+            <button class="pill" onclick="C.pill('strata','Total',this,'c-p-st')">All</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="clabel" style="margin-bottom:5px">Income scenario</div>
+          <div class="seg" style="width:100%">
+            <button class="on" style="flex:1" onclick="C.seg('income','graduate',this)">Graduate</button>
+            <button style="flex:1" onclick="C.seg('income','topscale',this)">Top scale</button>
+          </div>
+        </div>
+        <div>
+          <div class="clabel" style="margin-bottom:5px">Household type</div>
+          <div class="seg" style="width:100%">
+            <button class="on" style="flex:1" onclick="C.seg('hhMode','solo',this)">Solo</button>
+            <button style="flex:1" onclick="C.seg('hhMode','household',this)">Household</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="clabel" style="margin-bottom:5px">Year</div>
+          <select class="ctrl-select" id="c-yr" onchange="C.setYr(+this.value)" style="width:100%"></select>
+        </div>
+
+        <div>
+          <div class="clabel" style="margin-bottom:5px">Quarter</div>
+          <div class="seg" style="width:100%">
+            <button class="on" style="flex:1" onclick="C.seg('qtr','Q1',this)">Q1</button>
+            <button style="flex:1" onclick="C.seg('qtr','Q2',this)">Q2</button>
+            <button style="flex:1" onclick="C.seg('qtr','Q3',this)">Q3</button>
+            <button style="flex:1" onclick="C.seg('qtr','Q4',this)">Q4</button>
+          </div>
+        </div>
+
+        <div style="font-size:11px;color:var(--slate);line-height:1.65">
+          Colours show affordability as a multiple of income threshold. Click any LGA to explore its history.
+        </div>
+      </div>
+
+      <div class="choro-area">
+        <svg id="choro-svg"></svg>
+        <div class="mtt" id="mtt">
+          <div class="mtt-name" id="mtt-n">—</div>
+          <div class="mtt-val" id="mtt-v">—</div>
+          <div class="mtt-sub" id="mtt-s">—</div>
+          <div class="mtt-zone" id="mtt-z">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-legend sec-inner">
+      <div class="clabel" style="margin-bottom:6px" id="zone-title">Affordability zones (rent: % of salary)</div>
+      <div class="zone-items" id="zone-items"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Supplementary material for: <strong>Eacott, S. &amp; Garg, P. (2026).</strong> <em>Priced out of the classroom: Housing affordability and the NSW teacher labour market.</em><br>
+  HATS Lab, UNSW Sydney · Data: NSW DCJ, ABS · <a href="https://www.unsw.edu.au/research/hats" target="_blank" rel="noopener">HATS Lab</a></p>
+</footer>
+
+<script>
+/* ═══════════════════════════════════
+   SALARY DATA (embedded from actual file)
+═══════════════════════════════════ */
+const SAL = {
+  1990:{g:24342,t:34461},1991:{g:26907,t:38000},1992:{g:27580,t:38950},
+  1993:{g:27580,t:38950},1994:{g:28407,t:40119},1995:{g:29750,t:42016},
+  1996:{g:30048,t:42436},1997:{g:31851,t:44982},1998:{g:33125,t:46781},
+  1999:{g:35143,t:50000},2000:{g:35143,t:50000},2001:{g:36549,t:52182},
+  2002:{g:37645,t:53747},2003:{g:41109,t:58692},2004:{g:43370,t:62237},
+  2005:{g:46234,t:66348},2006:{g:47621,t:69334},2007:{g:49050,t:72454},
+  2008:{g:50522,t:75352},2009:{g:52745,t:78667},2010:{g:54749,t:81656},
+  2011:{g:56829,t:84759},2012:{g:58250,t:86878},2013:{g:59706,t:89050},
+  2014:{g:61061,t:91071},2015:{g:62447,t:93138},2016:{g:64008,t:95446},
+  2017:{g:65608,t:97853},2018:{g:67248,t:100299},2019:{g:68929,t:102806},
+  2020:{g:70652,t:105376},2021:{g:72263,t:107779},2022:{g:73921,t:110253},
+  2023:{g:85000,t:122100},2024:{g:87550,t:125763},2025:{g:90177,t:129536}
+};
+
+// Get LGA median income for a given year (from household_income.csv)
+// Falls back to statewide average if LGA not found
+function getHHIncome(lga, year) {
+  if(!hhData.length) return 55000; // fallback
+  const row = hhData.find(r => r.lga === lga && r.year === year);
+  if(row) return row.income;
+  // Try nearest year
+  const rows = hhData.filter(r => r.lga === lga).sort((a,b)=>Math.abs(a.year-year)-Math.abs(b.year-year));
+  return rows.length ? rows[0].income : 55000;
+}
+
+// Solo teacher salary only
+function soloSalary(year, type) { 
+  const s = SAL[year] || SAL[2025]; 
+  return type==='g' ? s.g : s.t; 
+}
+
+// Household = teacher salary + LGA median income
+function householdSalary(year, type, lga) {
+  return soloSalary(year, type) + getHHIncome(lga, year);
+}
+
+// Effective income based on mode
+function effectiveIncome(year, type, mode, lga) {
+  return mode==='household' ? householdSalary(year, type, lga) : soloSalary(year, type);
+}
+
+// Rent threshold: 30% of annual income / 52 weeks
+function rentThresh(year, type='g', mode='solo', lga=null) {
+  return (effectiveIncome(year, type, mode, lga) * 0.30) / 52;
+}
+// Sales threshold: 3× annual income / 1000 (prices in $000s)
+function salesThresh(year, type='g', mode='solo', lga=null) {
+  return (effectiveIncome(year, type, mode, lga) * 3) / 1000;
+}
+
+/* Rent affordability zones (SGS — ratio of rent to 30% threshold) */
+const RENT_ZONES = [
+  {max:1.0,  label:'Affordable',             color:'#2e7d32'},
+  {max:1.27, label:'Moderately Unaffordable',color:'#8bc34a'},
+  {max:1.6,  label:'Seriously Unaffordable', color:'#fbc02d'},
+  {max:2.0,  label:'Severely Unaffordable',  color:'#e65100'},
+  {max:Infinity,label:'Impossibly Unaffordable',color:'#b71c1c'}
+];
+/* Sales (Demographia — price-to-income multiple vs 3× threshold) */
+const SALES_ZONES = [
+  {max:1.0,  label:'Affordable',             color:'#2e7d32'},
+  {max:1.33, label:'Moderately Unaffordable',color:'#8bc34a'},
+  {max:1.67, label:'Seriously Unaffordable', color:'#fbc02d'},
+  {max:3.0,  label:'Severely Unaffordable',  color:'#e65100'},
+  {max:Infinity,label:'Impossibly Unaffordable',color:'#b71c1c'}
+];
+
+function getZone(ratio, zones) {
+  for (const z of zones) if (ratio <= z.max) return z;
+  return zones[zones.length-1];
+}
+
+/* ═══════════════════════════════════
+   DATA
+═══════════════════════════════════ */
+let rentData=[], salesData=[], hhData=[], ready=false;
+const _cbs=[];
+function onReady(fn){ready?fn():_cbs.push(fn)}
+
+Promise.all([
+  fetch('rent.csv').then(r=>r.text()),
+  fetch('sales.csv').then(r=>r.text()),
+  fetch('household_income.csv').then(r=>r.text()).catch(()=>'')
+]).then(([rt,st,hht])=>{
+  rentData  = Papa.parse(rt,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
+  salesData = Papa.parse(st,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
+  if(hht) hhData = Papa.parse(hht,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
+  ready=true; _cbs.forEach(f=>f());
+  E.init(); C.init();
+}).catch(()=>{ ready=true; _cbs.forEach(f=>f()); E.init(); C.init(); });
+
+/* ═══════════════════════════════════
+   SECTION 1 — ANIMATION PLAYER
+═══════════════════════════════════ */
+const A=(()=>{
+  const S={market:'rent',income:'graduate',hh:'solo',dwelling:'flat',bed:'1br',strata:'nonstrata'};
+
+  function seg(k,v,btn){
+    S[k]=v;
+    btn.closest('.seg').querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    if(k==='market'){
+      document.getElementById('a-rent-opts').style.display=v==='rent'?'':'none';
+      document.getElementById('a-sales-opts').style.display=v==='sales'?'':'none';
+    }
+    render();
+  }
+  function pill(k,v,btn,gid){
+    S[k]=v;
+    document.getElementById(gid).querySelectorAll('.pill').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    render();
+  }
+  function buildFn(){
+    let inc;
+    if(S.income==='combined'){
+      // combined = both grad+top overlaid, solo has no prefix, household has combined_ prefix
+      inc = S.hh==='household' ? 'combined' : 'combined';
+    } else {
+      inc = S.hh==='household' ? `combined_${S.income}` : S.income;
+    }
+    return S.market==='rent'
+      ? `rent_${S.dwelling}_${S.bed}_${inc}.mp4`
+      : `sales_${S.strata}_${inc}.mp4`;
+  }
+  function render(){
+    const fn=buildFn();
+    document.getElementById('a-fn').textContent=fn;
+    document.getElementById('a-body').innerHTML=
+      `<video controls autoplay loop playsinline>
+         <source src="videos/${fn}" type="video/mp4"/>
+         <div class="empty-v">Could not load ${fn}</div>
+       </video>`;
+  }
+  render();
+  return{seg,pill};
+})();
+
+/* ═══════════════════════════════════
+   SECTION 2 — LGA EXPLORER
+═══════════════════════════════════ */
+const E=(()=>{
+  const S={market:'rent',dwelling:'Flat/Unit',bed:'1 Bedroom',strata:'Non Strata',showThresh:'both',hhMode:'solo'};
+  let sel=null, chart=null, allLGAs=[];
+
+  function seg(k,v,btn){
+    S[k]=v;
+    btn.closest('.seg').querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    if(k==='market'){
+      document.getElementById('e-dw-grp').style.display=v==='rent'?'':'none';
+      document.getElementById('e-bed-grp').style.display=v==='rent'?'':'none';
+      document.getElementById('e-st-grp').style.display=v==='sales'?'':'none';
+    }
+    if(sel) draw();
+  }
+  function pill(k,v,btn,gid){
+    S[k]=v;
+    document.getElementById(gid).querySelectorAll('.pill').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    if(sel) draw();
+  }
+  function filter(q){
+    document.querySelectorAll('.lga-item').forEach(el=>{
+      el.style.display=el.dataset.lga.toLowerCase().includes(q.toLowerCase())?'':'none';
+    });
+  }
+  function select(name){
+    sel=name;
+    document.querySelectorAll('.lga-item').forEach(el=>el.classList.toggle('sel',el.dataset.lga===name));
+    const el=document.querySelector(`.lga-item[data-lga="${name}"]`);
+    if(el) el.scrollIntoView({block:'nearest'});
+    document.getElementById('lga-inp').value=name;
+    filter(name);
+    draw();
+  }
+
+  function draw(){
+    if(!sel) return;
+    const isR=S.market==='rent';
+    const src=isR?rentData:salesData;
+    let rows=src.filter(r=>{
+      if(r.lga!==sel) return false;
+      return isR ? r.dwelling===S.dwelling&&r.bedrooms===S.bed : r.dwelling===S.strata;
+    }).sort((a,b)=>a.Year!==b.Year?a.Year-b.Year:a.Quarter.localeCompare(b.Quarter));
+
+    const labels=rows.map(r=>`${r.Year} ${r.Quarter}`);
+    const vals=rows.map(r=>isR?r.median_weekly_rent:r.median_sales_price);
+
+    // Build threshold arrays per-year, using hhMode (solo or household)
+    const gradLine=rows.map(r=>isR?rentThresh(r.Year,'g',S.hhMode,sel):salesThresh(r.Year,'g',S.hhMode,sel));
+    const topLine =rows.map(r=>isR?rentThresh(r.Year,'t',S.hhMode,sel):salesThresh(r.Year,'t',S.hhMode,sel));
+
+    document.getElementById('c-lga').textContent=sel;
+    document.getElementById('c-meta').textContent=isR
+      ? `${S.dwelling} · ${S.bed} · ${rows[0]?.Year||''}–2025`
+      : `${S.strata} · ${rows[0]?.Year||''}–2025`;
+    document.getElementById('c-empty').style.display='none';
+
+    const cv=document.getElementById('c-canvas');
+    cv.style.display='block';
+    if(chart) chart.destroy();
+
+    const datasets=[{
+      label: isR?'Median weekly rent ($/wk)':'Median sale price ($000s)',
+      data:vals, borderColor:'#2ABFBF', backgroundColor:'rgba(42,191,191,.06)',
+      borderWidth:2, pointRadius:0, pointHoverRadius:5,
+      pointHoverBackgroundColor:'#2ABFBF', tension:.3, fill:true, order:3
+    }];
+
+    if(S.showThresh==='graduate'||S.showThresh==='both'){
+      datasets.push({
+        label:'Graduate threshold',data:gradLine,
+        borderColor:'#f5c518',borderWidth:1.5,borderDash:[4,4],
+        pointRadius:0,fill:false,order:1
+      });
+    }
+    if(S.showThresh==='topscale'||S.showThresh==='both'){
+      datasets.push({
+        label:'Top of Scale threshold',data:topLine,
+        borderColor:'#ff8c00',borderWidth:1.5,borderDash:[4,4],
+        pointRadius:0,fill:false,order:2
+      });
+    }
+
+    chart=new Chart(cv,{
+      type:'line',
+      data:{labels,datasets},
+      options:{
+        responsive:true,
+        interaction:{mode:'index',intersect:false},
+        plugins:{
+          legend:{
+            display:S.showThresh!=='none',
+            labels:{color:'#8A9BB0',font:{family:"'JetBrains Mono'",size:10},boxWidth:12}
+          },
+          tooltip:{
+            backgroundColor:'#111827',borderColor:'rgba(138,155,176,.2)',borderWidth:1,
+            titleColor:'#C8C4BC',bodyColor:'#e8e8e4',
+            titleFont:{family:"'JetBrains Mono'",size:11},bodyFont:{family:"'JetBrains Mono'",size:12},
+            callbacks:{label:ctx=>isR?`$${ctx.parsed.y?.toFixed(0)||'—'}/wk`:`$${ctx.parsed.y?.toFixed(0)||'—'}k`}
+          }
+        },
+        scales:{
+          x:{
+            ticks:{color:'#8A9BB0',font:{family:"'JetBrains Mono'",size:10},maxTicksLimit:14,
+              callback(v,i){const l=this.getLabelForValue(v);return l?.endsWith('Q1')?l.split(' ')[0]:''}},
+            grid:{color:'rgba(138,155,176,.06)'},border:{color:'rgba(138,155,176,.15)'}
+          },
+          y:{
+            ticks:{color:'#8A9BB0',font:{family:"'JetBrains Mono'",size:10},
+              callback:v=>isR?`$${v}`:`$${v}k`},
+            grid:{color:'rgba(138,155,176,.06)'},border:{color:'rgba(138,155,176,.15)'}
+          }
+        }
+      }
+    });
+    document.getElementById('aff-legend').style.display=S.showThresh==='none'?'none':'flex';
+  }
+
+  function init(){
+    allLGAs=[...new Set([...rentData.map(r=>r.lga),...salesData.map(r=>r.lga)])].filter(Boolean).sort();
+    const list=document.getElementById('lga-list');
+    allLGAs.forEach(lga=>{
+      const el=document.createElement('div');
+      el.className='lga-item'; el.dataset.lga=lga; el.textContent=lga;
+      el.onclick=()=>select(lga);
+      list.appendChild(el);
+    });
+  }
+
+  return{seg,pill,filter,select,init};
+})();
+
+/* ═══════════════════════════════════
+   SECTION 3 — CHOROPLETH
+═══════════════════════════════════ */
+const C=(()=>{
+  const S={market:'rent',dwelling:'Flat/Unit',bed:'1 Bedroom',strata:'Non Strata',income:'graduate',hhMode:'solo',year:2024,qtr:'Q1'};
+  let geo=null,proj=null,pathFn=null,lgaVals={};
+
+  function seg(k,v,btn){
+    S[k]=v;
+    btn.closest('.seg').querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    if(k==='market'){
+      document.getElementById('c-rent-opts').style.display=v==='rent'?'':'none';
+      document.getElementById('c-sales-opts').style.display=v==='sales'?'':'none';
+    }
+    update();
+  }
+  function pill(k,v,btn,gid){
+    S[k]=v;
+    document.getElementById(gid).querySelectorAll('.pill').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    update();
+  }
+  function setYr(y){S.year=y;update();}
+
+  function getVals(){
+    const vals={};
+    const src=S.market==='rent'?rentData:salesData;
+    if(!src.length) return vals;
+    const rows=src.filter(r=>{
+      if(r.Year!==S.year||r.Quarter!==S.qtr) return false;
+      return S.market==='rent'?r.dwelling===S.dwelling&&r.bedrooms===S.bed:r.dwelling===S.strata;
+    });
+    rows.forEach(r=>{
+      const lga=r.lga_shp||r.lga;
+      const v=S.market==='rent'?r.median_weekly_rent:r.median_sales_price;
+      if(v&&!isNaN(v)) vals[lga]=v;
+    });
+    return vals;
+  }
+
+  function updateLegend(zones,isR){
+    const incLabel=`${S.income==='graduate'?'Graduate':'Top of Scale'}, ${S.hhMode==='household'?'Household':'Solo'}`;
+    const title=isR
+      ?`Affordability zones — rent vs 30% income threshold (${incLabel})`
+      :`Affordability zones — price vs 3× income threshold (${incLabel})`;
+    document.getElementById('zone-title').textContent=title;
+    document.getElementById('zone-items').innerHTML=zones.map(z=>
+      `<div class="zone-item"><div class="zone-swatch" style="background:${z.color}"></div><span>${z.label}</span></div>`
+    ).join('');
+  }
+
+  function update(){
+    if(!geo) return;
+    const isR=S.market==='rent';
+    const zones=isR?RENT_ZONES:SALES_ZONES;
+    const salType=S.income==='graduate'?'g':'t';
+    // For choropleth, use a representative statewide threshold
+    // Household uses statewide avg LGA income as proxy (~$58k for recent years)
+    const thresh=isR?rentThresh(S.year,salType,S.hhMode,null):salesThresh(S.year,salType,S.hhMode,null);
+
+    lgaVals=getVals();
+    updateLegend(zones,isR);
+
+    d3.select('#choro-svg').selectAll('path').attr('fill',d=>{
+      const v=lgaVals[d.properties.LGA_NAME25];
+      if(!v) return '#1b2537';
+      const ratio=v/thresh;
+      return getZone(ratio,zones).color;
+    });
+  }
+
+  function init(){
+    // Populate year selector (2017-2025)
+    const sel=document.getElementById('c-yr');
+    for(let y=2025;y>=2017;y--){
+      const o=document.createElement('option');
+      o.value=y; o.textContent=y;
+      if(y===2024) o.selected=true;
+      sel.appendChild(o);
+    }
+
+    fetch('nsw_lgas.geojson').then(r=>r.json()).then(g=>{
+      geo=g;
+      const svg=d3.select('#choro-svg');
+      const cont=document.querySelector('.choro-area');
+      const w=cont.clientWidth||700, h=Math.max(520,w*.88);
+      svg.attr('viewBox',`0 0 ${w} ${h}`);
+      proj=d3.geoMercator().fitSize([w,h],g);
+      pathFn=d3.geoPath().projection(proj);
+      const tt=document.getElementById('mtt');
+
+      svg.selectAll('path').data(g.features).enter().append('path')
+        .attr('d',pathFn)
+        .attr('fill','#1b2537')
+        .attr('stroke','#0B1120')
+        .attr('stroke-width',.5)
+        .style('cursor','pointer')
+        .style('transition','fill .2s')
+        .on('mouseover',function(ev,d){
+          d3.select(this).attr('stroke','#2ABFBF').attr('stroke-width',1.5);
+          const name=d.properties.LGA_NAME25;
+          const v=lgaVals[name];
+          const isR=S.market==='rent';
+          const salType=S.income==='graduate'?'g':'t';
+          const thresh=isR?rentThresh(S.year,salType,S.hhMode,null):salesThresh(S.year,salType,S.hhMode,null);
+          const fmt=isR?`$${Math.round(v)}/wk`:`$${v?.toFixed(0)||'—'}k`;
+          const zones=isR?RENT_ZONES:SALES_ZONES;
+          const zone=v?getZone(v/thresh,zones):{label:'No data',color:'#8A9BB0'};
+          document.getElementById('mtt-n').textContent=name;
+          document.getElementById('mtt-v').textContent=v?fmt:'No data';
+          document.getElementById('mtt-s').textContent=`${S.year} ${S.qtr} · ${isR?S.dwelling+' '+S.bed:S.strata}`;
+          const zEl=document.getElementById('mtt-z');
+          zEl.textContent=zone.label;
+          zEl.style.background=zone.color+'33';
+          zEl.style.color=zone.color;
+          tt.style.display='block';
+        })
+        .on('mousemove',ev=>{
+          const r=cont.getBoundingClientRect();
+          let x=ev.clientX-r.left+14, y=ev.clientY-r.top-10;
+          if(x+200>w) x-=200;
+          tt.style.left=x+'px'; tt.style.top=y+'px';
+        })
+        .on('mouseleave',function(){
+          d3.select(this).attr('stroke','#0B1120').attr('stroke-width',.5);
+          tt.style.display='none';
+        })
+        .on('click',(ev,d)=>{
+          const name=d.properties.LGA_NAME25;
+          E.select(name);
+          document.getElementById('explorer').scrollIntoView({behavior:'smooth'});
+        });
+
+      update();
+    }).catch(()=>{
+      document.querySelector('.choro-area').innerHTML=
+        '<div style="padding:3rem;text-align:center;color:var(--slate);font-size:13px">Map requires <code>nsw_lgas.geojson</code></div>';
+    });
+  }
+
+  return{seg,pill,setYr,init};
+})();
+
+/* ═══════════════════════════════════
+   NAV ACTIVE STATE
+═══════════════════════════════════ */
+const navMap=[['home',null],['animations','nt-a'],['explorer','nt-e'],['map','nt-m']];
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY+70;
+  let cur=null;
+  navMap.forEach(([id,nav])=>{
+    const el=document.getElementById(id);
+    if(el&&el.offsetTop<=y) cur=nav;
+  });
+  document.querySelectorAll('.nav-tabs a').forEach(a=>a.classList.remove('on'));
+  if(cur) document.getElementById(cur)?.classList.add('on');
+},{passive:true});
+</script>
+</body>
+</html>
