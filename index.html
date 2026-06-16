@@ -569,16 +569,14 @@ const A=(()=>{
     render();
   }
   function buildFn(){
-    let inc;
-    if(S.income==='combined'){
-      // combined = both grad+top overlaid, solo has no prefix, household has combined_ prefix
-      inc = S.hh==='household' ? 'combined' : 'combined';
-    } else {
-      inc = S.hh==='household' ? `combined_${S.income}` : S.income;
-    }
-    return S.market==='rent'
-      ? `rent_${S.dwelling}_${S.bed}_${inc}.mp4`
-      : `sales_${S.strata}_${inc}.mp4`;
+    // Actual naming: rent_flat_1br_graduate.mp4 (solo)
+    //                rent_flat_1br_graduate_household.mp4 (household)
+    //                rent_flat_1br_combined.mp4 (combined solo)
+    //                rent_flat_1br_combined_household.mp4 (combined household)
+    const hhSuffix = S.hh === 'household' ? '_household' : '';
+    return S.market === 'rent'
+      ? `rent_${S.dwelling}_${S.bed}_${S.income}${hhSuffix}.mp4`
+      : `sales_${S.strata}_${S.income}${hhSuffix}.mp4`;
   }
   function render(){
     const fn=buildFn();
