@@ -34,9 +34,13 @@ nav{position:fixed;inset:0 0 auto;z-index:300;height:52px;display:flex;align-ite
 
 /* HERO */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:90px 2.5rem 5rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(220,38,38,.04) 0,transparent 65%);pointer-events:none}
+.hero::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 50% 40%,rgba(220,38,38,.05) 0,transparent 65%),
+  repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,.018) 79px,rgba(255,255,255,.018) 80px),
+  repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,.018) 79px,rgba(255,255,255,.018) 80px);
+  pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(220,38,38,.3),transparent)}
-.hero-inner{max-width:1060px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+.hero-inner{max-width:1060px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr minmax(200px,320px);gap:4rem;align-items:center}
 .hero-left{}
 .eyebrow{font-family:var(--mono);font-size:10px;color:var(--slate2);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.25rem}
 h1.display{font-family:var(--serif);font-size:clamp(3rem,6.5vw,6.2rem);line-height:1.02;font-weight:900;margin-bottom:1.75rem}
@@ -47,9 +51,9 @@ h1.display em{color:var(--red);font-style:italic}
 .stat-n{font-family:var(--mono);font-size:1.9rem;font-weight:500;line-height:1;color:var(--cream)}
 .stat-n span{font-size:1rem;color:var(--slate2);margin-left:2px}
 .stat-l{font-size:11px;color:var(--slate);margin-top:4px;line-height:1.5}
-.hero-right{text-align:center}
-.hero-bignum{font-family:var(--serif);font-size:clamp(5rem,12vw,10rem);font-weight:900;font-style:italic;line-height:1;color:var(--red);opacity:.9}
-.hero-bignum-label{font-family:var(--mono);font-size:10px;color:var(--slate);letter-spacing:.1em;text-transform:uppercase;margin-top:.5rem;line-height:1.6}
+.hero-right{text-align:center;min-width:0}
+.hero-bignum{font-family:var(--serif);font-size:clamp(4rem,10vw,9rem);font-weight:900;font-style:italic;line-height:1;color:var(--red);opacity:.9}
+.hero-bignum-label{font-family:var(--mono);font-size:9px;color:var(--slate2);letter-spacing:.1em;text-transform:uppercase;margin-top:.75rem;line-height:1.8}
 
 /* DIVIDER */
 .div{width:100%;height:.5px;background:linear-gradient(to right,transparent,rgba(255,255,255,.07),transparent)}
@@ -133,11 +137,23 @@ input.lga-search::placeholder{color:var(--slate)}
 /* SELECT styling */
 select.ctrl-select{background:var(--ink3);border:.5px solid rgba(255,255,255,.1);border-radius:3px;padding:7px 30px 7px 10px;color:var(--cream2);font-family:var(--mono);font-size:11px;cursor:pointer;outline:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235A6478'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;letter-spacing:.04em}
 
-footer{border-top:.5px solid var(--border);padding:3rem 2.5rem;text-align:center;background:var(--ink2)}
-footer p{font-size:12px;font-family:var(--mono);color:var(--slate);line-height:2;letter-spacing:.02em}
-footer a{color:var(--slate2);text-decoration:none;border-bottom:.5px solid var(--border)}
+.contact{background:var(--ink2);border-top:.5px solid var(--border);padding:4rem 2.5rem}
+.contact-inner{max-width:1100px;margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+.contact-card{padding:1.5rem;border:.5px solid var(--border);border-radius:4px;background:rgba(255,255,255,.02);transition:border-color .15s}
+.contact-card:hover{border-color:rgba(220,38,38,.3)}
+.contact-role{font-family:var(--mono);font-size:9px;color:var(--slate);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem}
+.contact-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--cream);margin-bottom:.25rem}
+.contact-inst{font-size:12px;color:var(--slate2);margin-bottom:1rem;line-height:1.5}
+.contact-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--slate);text-decoration:none;border:.5px solid var(--border);padding:5px 12px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;transition:all .15s}
+.contact-link:hover{color:var(--cream2);border-color:rgba(255,255,255,.2)}
+.contact-link svg{opacity:.6}
+footer{border-top:.5px solid var(--border);padding:2rem 2.5rem;text-align:center;background:var(--ink)}
+footer p{font-size:11px;font-family:var(--mono);color:var(--slate);line-height:2;letter-spacing:.02em}
+footer a{color:var(--slate2);text-decoration:none}
 footer a:hover{color:var(--cream2)}
 footer strong{color:var(--cream2)}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
 
 @media(max-width:800px){
   .choro-layout,.lga-layout{grid-template-columns:1fr}
@@ -145,6 +161,9 @@ footer strong{color:var(--cream2)}
   .lga-side{position:static}
   .stats{gap:1.5rem}
   .nav-tabs{display:none}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-right{order:-1}
+  .hero-bignum{font-size:clamp(4rem,22vw,7rem)}
 }
 </style>
 </head>
@@ -157,6 +176,7 @@ footer strong{color:var(--cream2)}
     <li><a href="#animations" id="nt-a">Animations</a></li>
     <li><a href="#explorer" id="nt-e">LGA Explorer</a></li>
     <li><a href="#map" id="nt-m">Choropleth</a></li>
+    <li><a href="#contact" id="nt-c">Team</a></li>
   </ul>
 </nav>
 
@@ -458,6 +478,43 @@ footer strong{color:var(--cream2)}
     </div>
   </div>
 </div>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="sec-ey">Research team</div>
+    <h2 class="sec-title" style="margin-bottom:.5rem">Get in touch</h2>
+    <p class="sec-desc" style="margin-bottom:0">For questions about this research, data, or methodology.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role">Principal Investigator</div>
+        <div class="contact-name">Scott Eacott</div>
+        <div class="contact-inst">Associate Professor<br>HATS Lab, UNSW Sydney</div>
+        <a class="contact-link" href="https://www.linkedin.com/in/scott-eacott/" target="_blank" rel="noopener">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Research Assistant</div>
+        <div class="contact-name">Pushkal Garg</div>
+        <div class="contact-inst">Master of Data Science<br>UNSW Sydney</div>
+        <a class="contact-link" href="https://www.linkedin.com/in/pushkalgarg/" target="_blank" rel="noopener">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Research Associate</div>
+        <div class="contact-name">Zih-Hong Lin</div>
+        <div class="contact-inst">Research Associate<br>HATS Lab, UNSW Sydney</div>
+        <a class="contact-link" href="https://www.linkedin.com/in/zih-hong-lin/" target="_blank" rel="noopener">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <p>Supplementary material for: <strong>Eacott, S., Garg, P. &amp; Lin, Z-H. (2026).</strong> <em>Priced out of the classroom: Housing affordability and the NSW teacher labour market.</em><br>
