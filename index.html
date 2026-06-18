@@ -534,17 +534,19 @@ let rentData=[], salesData=[], hhData=[], ready=false;
 const _cbs=[];
 function onReady(fn){ready?fn():_cbs.push(fn)}
 
+// Load all CSVs individually so one failure doesn't block the rest
 Promise.all([
-  fetch('rent.csv').then(r=>r.text()),
-  fetch('sales.csv').then(r=>r.text()),
-  fetch('household_income.csv').then(r=>r.text()).catch(()=>'')
+  fetch('rent.csv').then(r=>{if(!r.ok)throw new Error('rent.csv '+r.status); return r.text();}).catch(e=>{console.error('rent.csv failed:',e);return '';}),
+  fetch('sales.csv').then(r=>{if(!r.ok)throw new Error('sales.csv '+r.status); return r.text();}).catch(e=>{console.error('sales.csv failed:',e);return '';}),
+  fetch('household_income.csv').then(r=>{if(!r.ok)throw new Error('hh '+r.status); return r.text();}).catch(e=>{console.warn('household_income.csv failed:',e);return '';})
 ]).then(([rt,st,hht])=>{
-  rentData  = Papa.parse(rt,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
-  salesData = Papa.parse(st,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
-  if(hht) hhData = Papa.parse(hht,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
+  if(rt) rentData  = Papa.parse(rt,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
+  if(st) salesData = Papa.parse(st,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
+  if(hht) hhData   = Papa.parse(hht,{header:true,dynamicTyping:true,skipEmptyLines:true}).data;
+  console.log('Data loaded — rent:',rentData.length,'sales:',salesData.length,'hh:',hhData.length);
   ready=true; _cbs.forEach(f=>f());
   E.init(); C.init();
-}).catch(()=>{ ready=true; _cbs.forEach(f=>f()); E.init(); C.init(); });
+});
 
 /* ═══════════════════════════════════
    SECTION 1 — ANIMATION PLAYER
