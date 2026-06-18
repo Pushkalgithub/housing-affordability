@@ -861,7 +861,8 @@ const C=(()=>{
           document.getElementById('explorer').scrollIntoView({behavior:'smooth'});
         });
 
-      update();
+      // Wait for CSV data to be ready before rendering
+      onReady(()=>update());
     }).catch(()=>{
       document.querySelector('.choro-area').innerHTML=
         '<div style="padding:3rem;text-align:center;color:var(--slate);font-size:13px">Map requires <code>nsw_lgas.geojson</code></div>';
