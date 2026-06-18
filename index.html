@@ -446,7 +446,7 @@ footer strong{color:var(--cream)}
 </div>
 
 <footer>
-  <p>Supplementary material for: <strong>Eacott, S. &amp; Garg, P. (2026).</strong> <em>Priced out of the classroom: Housing affordability and the NSW teacher labour market.</em><br>
+  <p>Supplementary material for: <strong>Eacott, S., Garg, P. &amp; Lin, Z-H. (2026).</strong> <em>Priced out of the classroom: Housing affordability and the NSW teacher labour market.</em><br>
   HATS Lab, UNSW Sydney · Data: NSW DCJ, ABS · <a href="https://www.unsw.edu.au/research/hats" target="_blank" rel="noopener">HATS Lab</a></p>
 </footer>
 
@@ -799,7 +799,7 @@ const C=(()=>{
     lgaVals=getVals();
     updateLegend(zones,isR);
 
-    d3.select('#choro-svg').selectAll('path').attr('fill',d=>{
+    d3.select('#choro-svg').select('.zoom-g').selectAll('path').attr('fill',d=>{
       const v=lgaVals[d.properties.LGA_NAME25];
       if(!v) return '#1b2537';
       const ratio=v/thresh;
@@ -827,15 +827,38 @@ const C=(()=>{
       pathFn=d3.geoPath().projection(proj);
       const tt=document.getElementById('mtt');
 
-      svg.selectAll('path').data(g.features).enter().append('path')
+      // Zoom & pan
+      const zoomG = svg.append('g').attr('class','zoom-g');
+      const zoom = d3.zoom()
+        .scaleExtent([1, 12])
+        .on('zoom', ev => {
+          zoomG.attr('transform', ev.transform);
+          // Thin strokes when zoomed in
+          const k = ev.transform.k;
+          zoomG.selectAll('path').attr('stroke-width', Math.max(0.2, 0.5/k));
+        });
+      svg.call(zoom);
+
+      // Reset button
+      const resetBtn = document.createElement('button');
+      resetBtn.textContent = 'Reset zoom';
+      resetBtn.style.cssText = 'position:absolute;top:12px;right:12px;background:rgba(11,17,32,.85);border:.5px solid rgba(138,155,176,.3);color:#8A9BB0;font-family:var(--mono);font-size:10px;padding:5px 10px;border-radius:5px;cursor:pointer;letter-spacing:.05em;text-transform:uppercase';
+      resetBtn.onclick = () => svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+      cont.appendChild(resetBtn);
+
+      const hint = document.createElement('div');
+      hint.textContent = 'Scroll to zoom · Drag to pan';
+      hint.style.cssText = 'position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(138,155,176,.5);font-family:var(--mono);letter-spacing:.05em;pointer-events:none;white-space:nowrap';
+      cont.appendChild(hint);
+
+      zoomG.selectAll('path').data(g.features).enter().append('path')
         .attr('d',pathFn)
         .attr('fill','#1b2537')
         .attr('stroke','#0B1120')
         .attr('stroke-width',.5)
         .style('cursor','pointer')
-        .style('transition','fill .2s')
         .on('mouseover',function(ev,d){
-          d3.select(this).attr('stroke','#2ABFBF').attr('stroke-width',1.5);
+          const k=d3.zoomTransform(document.getElementById('choro-svg')).k; d3.select(this).attr('stroke','#2ABFBF').attr('stroke-width',Math.max(1,1.5/k)*1.5);
           const name=d.properties.LGA_NAME25;
           const v=lgaVals[name];
           const isR=S.market==='rent';
@@ -860,7 +883,7 @@ const C=(()=>{
           tt.style.left=x+'px'; tt.style.top=y+'px';
         })
         .on('mouseleave',function(){
-          d3.select(this).attr('stroke','#0B1120').attr('stroke-width',.5);
+          const kk=d3.zoomTransform(document.getElementById('choro-svg')).k; d3.select(this).attr('stroke','#0B1120').attr('stroke-width',Math.max(0.2,0.5/kk));
           tt.style.display='none';
         })
         .on('click',(ev,d)=>{
