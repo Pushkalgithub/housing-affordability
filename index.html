@@ -469,14 +469,18 @@ const SAL = {
   2023:{g:85000,t:122100},2024:{g:87550,t:125763},2025:{g:90177,t:129536}
 };
 
-// Get LGA median income for a given year (from household_income.csv)
-// Falls back to statewide average if LGA not found
+// Map from lga_shp name → household_income.csv name (for 6 mismatches)
+const HH_NAME_MAP = {
+  'Bayside (NSW)':'Bayside', 'Campbelltown (NSW)':'Campbelltown',
+  'Central Coast (NSW)':'Central Coast', 'Ku-ring-gai':'Ku-Ring-Gai',
+  'Sutherland':'Sutherland Shire', 'The Hills':'The Hills Shire'
+};
 function getHHIncome(lga, year) {
-  if(!hhData.length) return 55000; // fallback
-  const row = hhData.find(r => r.lga === lga && r.year === year);
+  if(!hhData.length) return 55000;
+  const hhLga = HH_NAME_MAP[lga] || lga;
+  const row = hhData.find(r => r.lga === hhLga && r.year === year);
   if(row) return row.income;
-  // Try nearest year
-  const rows = hhData.filter(r => r.lga === lga).sort((a,b)=>Math.abs(a.year-year)-Math.abs(b.year-year));
+  const rows = hhData.filter(r => r.lga === hhLga).sort((a,b)=>Math.abs(a.year-year)-Math.abs(b.year-year));
   return rows.length ? rows[0].income : 55000;
 }
 
@@ -637,7 +641,7 @@ const E=(()=>{
     const isR=S.market==='rent';
     const src=isR?rentData:salesData;
     let rows=src.filter(r=>{
-      if(r.lga!==sel) return false;
+      if((r.lga_shp||r.lga)!==sel) return false;
       return isR ? r.dwelling===S.dwelling&&r.bedrooms===S.bed : r.dwelling===S.strata;
     }).sort((a,b)=>a.Year!==b.Year?a.Year-b.Year:a.Quarter.localeCompare(b.Quarter));
 
@@ -716,7 +720,7 @@ const E=(()=>{
   }
 
   function init(){
-    allLGAs=[...new Set([...rentData.map(r=>r.lga),...salesData.map(r=>r.lga)])].filter(Boolean).sort();
+    allLGAs=[...new Set([...rentData.map(r=>r.lga_shp||r.lga),...salesData.map(r=>r.lga_shp||r.lga)])].filter(Boolean).sort();
     const list=document.getElementById('lga-list');
     allLGAs.forEach(lga=>{
       const el=document.createElement('div');
@@ -757,16 +761,18 @@ const C=(()=>{
   function getVals(){
     const vals={};
     const src=S.market==='rent'?rentData:salesData;
-    if(!src.length) return vals;
+    if(!src.length){ console.warn('getVals: no data loaded yet'); return vals; }
     const rows=src.filter(r=>{
       if(r.Year!==S.year||r.Quarter!==S.qtr) return false;
       return S.market==='rent'?r.dwelling===S.dwelling&&r.bedrooms===S.bed:r.dwelling===S.strata;
     });
+    console.log(`getVals: ${S.market} ${S.year} ${S.qtr} ${S.dwelling||S.strata} → ${rows.length} rows`);
     rows.forEach(r=>{
       const lga=r.lga_shp||r.lga;
       const v=S.market==='rent'?r.median_weekly_rent:r.median_sales_price;
       if(v&&!isNaN(v)) vals[lga]=v;
     });
+    console.log(`getVals: ${Object.keys(vals).length} LGAs with values`);
     return vals;
   }
 
