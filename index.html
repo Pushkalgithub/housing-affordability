@@ -174,8 +174,8 @@ footer strong{color:var(--cream2)}
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-bignum" id="hero-pct">0%</div>
-      <div class="hero-bignum-label">of Sydney LGAs<br>impossibly unaffordable<br>for graduate teachers<br><span style="color:var(--red);opacity:.7">2024 Q4</span></div>
+      <div class="hero-bignum" id="hero-pct">—</div>
+      <div class="hero-bignum-label">of NSW LGAs where a<br>graduate teacher cannot<br>afford a 1-bed flat<br><span style="color:var(--red);opacity:.7">2024 · Q4</span></div>
     </div>
   </div>
 </section>
@@ -925,17 +925,17 @@ const C=(()=>{
   // Calculate once data loads: rent > 2× graduate threshold
   function calcPct(){
     if(!rentData.length) return;
-    const yr=2024, qtr='Q4', dw='Flat/Unit', bed='Total';
-    const thresh = rentThresh(yr,'g','solo',null); // ~$505/wk
+    // % of NSW LGAs where median 1br flat rent > 30% of graduate salary (2024 Q4)
+    const yr=2024, qtr='Q4', dw='Flat/Unit', bed='1 Bedroom';
+    const thresh = rentThresh(yr,'g','solo',null); // $505/wk
     const rows = rentData.filter(r=>r.Year===yr&&r.Quarter===qtr&&r.dwelling===dw&&r.bedrooms===bed);
     if(!rows.length) return;
-    const impossible = rows.filter(r=>r.median_weekly_rent > thresh*2).length;
-    const pct = Math.round((impossible/rows.length)*100);
-    // Count up
+    const unaffordable = rows.filter(r=>r.median_weekly_rent > thresh).length;
+    const pct = Math.round((unaffordable/rows.length)*100);
     let cur=0;
     const el=document.getElementById('hero-pct');
     const step=()=>{
-      cur=Math.min(cur+2, pct);
+      cur=Math.min(cur+1, pct);
       el.textContent=cur+'%';
       if(cur<pct) requestAnimationFrame(step);
     };
