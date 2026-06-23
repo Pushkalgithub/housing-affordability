@@ -894,7 +894,11 @@ const C=(()=>{
       :`Affordability zones — price vs 3× income threshold (${incLabel})`;
     document.getElementById('zone-title').textContent=title;
     document.getElementById('zone-items').innerHTML=zones.map(z=>
-      `<div class="zone-item"><div class="zone-swatch" style="background:${z.color}"></div><span>${z.label}</span></div>`
+      `<div class="zone-item">
+        <div class="zone-swatch" style="background:${z.color}"></div>
+        <span>${z.label}</span>
+        <div class="zone-tt">${z.label}<br><span style="color:var(--slate)">ratio to threshold:</span> ${z.ratio}</div>
+      </div>`
     ).join('');
   }
 
@@ -1047,11 +1051,14 @@ const C=(()=>{
 const navMap=[['home',null],['animations','nt-a'],['explorer','nt-e'],['map','nt-m'],['contact','nt-c']];
 window.addEventListener('scroll',()=>{
   const y=window.scrollY+70;
+  const atBottom = (window.innerHeight+window.scrollY) >= document.body.offsetHeight-50;
   let cur=null;
   navMap.forEach(([id,nav])=>{
     const el=document.getElementById(id);
     if(el&&el.offsetTop<=y) cur=nav;
   });
+  // If at bottom of page, highlight Team
+  if(atBottom) cur='nt-c';
   document.querySelectorAll('.nav-tabs a').forEach(a=>a.classList.remove('on'));
   if(cur) document.getElementById(cur)?.classList.add('on');
 },{passive:true});
