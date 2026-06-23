@@ -414,7 +414,7 @@ footer strong{color:var(--cream2)}
   <div class="sec-inner" style="padding-bottom:1.75rem">
     <div class="sec-ey">03 — Spatial overview</div>
     <h2 class="sec-title">NSW affordability map</h2>
-    <p class="sec-desc">Affordability by LGA for 2017–2025, coloured by SGS/Demographia severity zones. Select a year and quarter, then click any LGA to jump to its time-series in the explorer above.</p>
+    <p class="sec-desc">Affordability by LGA for 2017–2026, coloured by SGS/Demographia severity zones. Select a year and quarter, then click any LGA to jump to its time-series in the explorer above.</p>
   </div>
 
   <div style="border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
@@ -576,7 +576,7 @@ const SAL = {
   2014:{g:61061,t:91071},2015:{g:62447,t:93138},2016:{g:64008,t:95446},
   2017:{g:65608,t:97853},2018:{g:67248,t:100299},2019:{g:68929,t:102806},
   2020:{g:70652,t:105376},2021:{g:72263,t:107779},2022:{g:73921,t:110253},
-  2023:{g:85000,t:122100},2024:{g:87550,t:125763},2025:{g:90177,t:129536}
+  2023:{g:85000,t:122100},2024:{g:87550,t:125763},2025:{g:90177,t:129536},2026:{g:92882,t:133422}
 };
 
 // Map from lga_shp name → household_income.csv name (for 6 mismatches)
@@ -765,8 +765,8 @@ const E=(()=>{
 
     document.getElementById('c-lga').textContent=sel;
     document.getElementById('c-meta').textContent=isR
-      ? `${S.dwelling} · ${S.bed} · ${rows[0]?.Year||''}–2025`
-      : `${S.strata} · ${rows[0]?.Year||''}–2025`;
+      ? `${S.dwelling} · ${S.bed} · ${rows[0]?.Year||''}–2026`
+      : `${S.strata} · ${rows[0]?.Year||''}–2026`;
     document.getElementById('c-empty').style.display='none';
 
     const cv=document.getElementById('c-canvas');
@@ -923,7 +923,7 @@ const C=(()=>{
   }
 
   function init(){
-    // Populate year selector (2017-2025)
+    // Populate year selector (2017-2026)
     const sel=document.getElementById('c-yr');
     for(let y=2026;y>=2017;y--){
       const o=document.createElement('option');
