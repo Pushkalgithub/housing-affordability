@@ -144,15 +144,23 @@ select.ctrl-select{background:var(--ink3);border:.5px solid rgba(255,255,255,.1)
 .contact{background:var(--ink2);border-top:.5px solid var(--border);padding:4rem 2.5rem}
 .contact-inner{max-width:1100px;margin:0 auto}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
-.contact-card{padding:1.5rem;border:.5px solid var(--border);border-radius:4px;background:rgba(255,255,255,.02);transition:border-color .15s}
+.contact-card{padding:1.75rem;border:.5px solid var(--border);border-radius:4px;background:rgba(255,255,255,.02);transition:border-color .15s;display:flex;flex-direction:column;align-items:center;text-align:center}
 .contact-card:hover{border-color:rgba(220,38,38,.3)}
-.contact-role{font-family:var(--mono);font-size:9px;color:var(--slate);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem}
-.contact-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--cream);margin-bottom:.25rem}
-.contact-inst{font-size:12px;color:var(--slate2);margin-bottom:1rem;line-height:1.5}
-.contact-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--slate);text-decoration:none;border:.5px solid var(--border);padding:5px 12px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;transition:all .2s var(--ease)}
-.contact-link:hover{color:#fff;background:#0A66C2;border-color:#0A66C2;gap:8px}
+.contact-photo{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.08);margin-bottom:1.1rem;background:var(--ink3)}
+.contact-photo-fallback{width:88px;height:88px;border-radius:50%;background:var(--ink3);border:2px solid rgba(255,255,255,.08);margin-bottom:1.1rem;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.5rem;color:var(--slate2)}
+.contact-role{font-family:var(--mono);font-size:9px;color:var(--slate);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem}
+.contact-name{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--cream);margin-bottom:.3rem}
+.contact-inst{font-size:11px;color:var(--slate2);margin-bottom:1.1rem;line-height:1.6}
+.contact-links{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.contact-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:var(--slate);text-decoration:none;border:.5px solid var(--border);padding:4px 10px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;transition:all .2s var(--ease)}
+.contact-link:hover{color:#fff;border-color:rgba(255,255,255,.2)}
+.contact-link.li:hover{background:#0A66C2;border-color:#0A66C2}
+.contact-link.orcid:hover{background:#A6CE39;border-color:#A6CE39;color:#000}
+.contact-link.unsw:hover{background:#FFD100;border-color:#FFD100;color:#000}
+.contact-link.email:hover{background:rgba(220,38,38,.2);border-color:var(--red);color:var(--cream)}
+.contact-link svg{opacity:.6;flex-shrink:0}
 .contact-link:hover svg{opacity:1}
-.contact-link svg{opacity:.6}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
 footer{border-top:.5px solid var(--border);padding:2rem 2.5rem;text-align:center;background:var(--ink)}
 footer p{font-size:11px;font-family:var(--mono);color:var(--slate);line-height:2;letter-spacing:.02em}
 footer a{color:var(--slate2);text-decoration:none}
@@ -524,40 +532,50 @@ footer strong{color:var(--cream2)}
     <h2 class="sec-title" style="margin-bottom:.5rem">Get in touch</h2>
     <p class="sec-desc" style="margin-bottom:0">For questions about this research, data, or methodology.</p>
     <div class="contact-grid">
+
       <div class="contact-card">
+        <img class="contact-photo" src="img/SE.jpg" alt="Scott Eacott" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="contact-photo-fallback" style="display:none">SE</div>
         <div class="contact-role">Principal Investigator</div>
         <div class="contact-name">Scott Eacott</div>
-        <div class="contact-inst">Professor<br>HATS Lab, UNSW Sydney</div>
-        <a class="contact-link" href="https://linkedin.com/in/scott-eacott-5176b250" target="_blank" rel="noopener">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
+        <div class="contact-inst">Professor of Education<br>HATS Lab, UNSW Sydney</div>
+        <div class="contact-links">
+          <a class="contact-link li" href="https://linkedin.com/in/scott-eacott-5176b250" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
+          <a class="contact-link orcid" href="https://orcid.org/0000-0002-5612-5887" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.881-1.316 3.881-3.722 0-2.016-1.284-3.722-3.881-3.722h-2.297z"/></svg> ORCID</a>
+        </div>
       </div>
+
       <div class="contact-card">
+        <img class="contact-photo" src="img/PG.jpg" alt="Pushkal Garg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="contact-photo-fallback" style="display:none">PG</div>
         <div class="contact-role">Research Assistant</div>
         <div class="contact-name">Pushkal Garg</div>
         <div class="contact-inst">Master of Data Science<br>UNSW Sydney</div>
-        <a class="contact-link" href="https://www.linkedin.com/in/pushkal-garg-650762233/" target="_blank" rel="noopener">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
+        <div class="contact-links">
+          <a class="contact-link li" href="https://www.linkedin.com/in/pushkal-garg-650762233/" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
+          <a class="contact-link orcid" href="https://orcid.org/0009-0002-0179-2946" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.881-1.316 3.881-3.722 0-2.016-1.284-3.722-3.881-3.722h-2.297z"/></svg> ORCID</a>
+        </div>
       </div>
+
       <div class="contact-card">
+        <img class="contact-photo" src="img/ZH.jpg" alt="Zih-Hong Lin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="contact-photo-fallback" style="display:none">ZH</div>
         <div class="contact-role">Research Associate</div>
         <div class="contact-name">Zih-Hong Lin</div>
         <div class="contact-inst">Research Associate<br>HATS Lab, UNSW Sydney</div>
-        <a class="contact-link" href="https://linkedin.com/in/zihhong-lin" target="_blank" rel="noopener">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
+        <div class="contact-links">
+          <a class="contact-link li" href="https://linkedin.com/in/zihhong-lin" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
+          <a class="contact-link orcid" href="https://orcid.org/0000-0002-0243-5927" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.881-1.316 3.881-3.722 0-2.016-1.284-3.722-3.881-3.722h-2.297z"/></svg> ORCID</a>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <footer>
   <p>Supplementary material for: <strong>Eacott, S., Garg, P. &amp; Lin, Z-H. (2026).</strong> <em>Priced out of the classroom: Housing affordability and the NSW teacher labour market.</em><br>
-  HATS Lab, UNSW Sydney · Data: NSW DCJ, ABS · <a href="https://www.unsw.edu.au/research/hats" target="_blank" rel="noopener">HATS Lab</a></p>
+  <a href="https://housingaffordability.com.au/" target="_blank" rel="noopener">HATS Lab Dashboard</a> · UNSW Sydney · Data: NSW DCJ, ABS · Enquiries: <a href="mailto:s.eacott@unsw.edu.au">s.eacott@unsw.edu.au</a></p>
 </footer>
 
 <script>
