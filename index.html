@@ -146,8 +146,8 @@ select.ctrl-select{background:var(--ink3);border:.5px solid rgba(255,255,255,.1)
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
 .contact-card{padding:1.75rem;border:.5px solid var(--border);border-radius:4px;background:rgba(255,255,255,.02);transition:border-color .15s;display:flex;flex-direction:column;align-items:center;text-align:center}
 .contact-card:hover{border-color:rgba(220,38,38,.3)}
-.contact-photo{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.08);margin-bottom:1.1rem;background:var(--ink3)}
-.contact-photo-fallback{width:88px;height:88px;border-radius:50%;background:var(--ink3);border:2px solid rgba(255,255,255,.08);margin-bottom:1.1rem;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.5rem;color:var(--slate2)}
+.contact-photo{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.1);margin-bottom:1.25rem;background:var(--ink3);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.contact-photo-fallback{width:180px;height:180px;border-radius:50%;background:var(--ink3);border:2px solid rgba(255,255,255,.1);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.8rem;color:var(--slate2)}
 .contact-role{font-family:var(--mono);font-size:9px;color:var(--slate);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem}
 .contact-name{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--cream);margin-bottom:.3rem}
 .contact-inst{font-size:11px;color:var(--slate2);margin-bottom:1.1rem;line-height:1.6}
@@ -156,7 +156,7 @@ select.ctrl-select{background:var(--ink3);border:.5px solid rgba(255,255,255,.1)
 .contact-link:hover{color:#fff;border-color:rgba(255,255,255,.2)}
 .contact-link.li:hover{background:#0A66C2;border-color:#0A66C2}
 .contact-link.orcid:hover{background:#A6CE39;border-color:#A6CE39;color:#000}
-.contact-link.unsw:hover{background:#FFD100;border-color:#FFD100;color:#000}
+.contact-link.unsw:hover{background:#FFD100 !important;border-color:#FFD100 !important;color:#000 !important}
 .contact-link.email:hover{background:rgba(220,38,38,.2);border-color:var(--red);color:var(--cream)}
 .contact-link svg{opacity:.6;flex-shrink:0}
 .contact-link:hover svg{opacity:1}
@@ -534,7 +534,7 @@ footer strong{color:var(--cream2)}
     <div class="contact-grid">
 
       <div class="contact-card">
-        <img class="contact-photo" src="img/SE.jpg" alt="Scott Eacott" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <img class="contact-photo" src="Img/SE.jpg" alt="Scott Eacott" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <div class="contact-photo-fallback" style="display:none">SE</div>
         <div class="contact-role">Principal Investigator</div>
         <div class="contact-name">Scott Eacott</div>
@@ -542,11 +542,13 @@ footer strong{color:var(--cream2)}
         <div class="contact-links">
           <a class="contact-link li" href="https://linkedin.com/in/scott-eacott-5176b250" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
           <a class="contact-link orcid" href="https://orcid.org/0000-0002-5612-5887" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.881-1.316 3.881-3.722 0-2.016-1.284-3.722-3.881-3.722h-2.297z"/></svg> ORCID</a>
+          <a class="contact-link unsw" href="https://research.unsw.edu.au/people/professor-scott-eacott" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> UNSW</a>
+          <a class="contact-link email" href="mailto:s.eacott@unsw.edu.au"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Email</a>
         </div>
       </div>
 
       <div class="contact-card">
-        <img class="contact-photo" src="img/PG.jpg" alt="Pushkal Garg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <img class="contact-photo" src="Img/PG.JPG" alt="Pushkal Garg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <div class="contact-photo-fallback" style="display:none">PG</div>
         <div class="contact-role">Research Assistant</div>
         <div class="contact-name">Pushkal Garg</div>
@@ -558,7 +560,7 @@ footer strong{color:var(--cream2)}
       </div>
 
       <div class="contact-card">
-        <img class="contact-photo" src="img/ZH.jpg" alt="Zih-Hong Lin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <img class="contact-photo" src="Img/ZH.jpg" alt="Zih-Hong Lin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <div class="contact-photo-fallback" style="display:none">ZH</div>
         <div class="contact-role">Research Associate</div>
         <div class="contact-name">Zih-Hong Lin</div>
@@ -566,6 +568,7 @@ footer strong{color:var(--cream2)}
         <div class="contact-links">
           <a class="contact-link li" href="https://linkedin.com/in/zihhong-lin" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
           <a class="contact-link orcid" href="https://orcid.org/0000-0002-0243-5927" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.881-1.316 3.881-3.722 0-2.016-1.284-3.722-3.881-3.722h-2.297z"/></svg> ORCID</a>
+          <a class="contact-link unsw" href="https://research.unsw.edu.au/people/mr-zih-hong-lin" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> UNSW</a>
         </div>
       </div>
 
@@ -575,7 +578,7 @@ footer strong{color:var(--cream2)}
 
 <footer>
   <p>Supplementary material for: <strong>Eacott, S., Garg, P. &amp; Lin, Z-H. (2026).</strong> <em>Priced out of the classroom: Housing affordability and the NSW teacher labour market.</em><br>
-  <a href="https://housingaffordability.com.au/" target="_blank" rel="noopener">HATS Lab Dashboard</a> · UNSW Sydney · Data: NSW DCJ, ABS · Enquiries: <a href="mailto:s.eacott@unsw.edu.au">s.eacott@unsw.edu.au</a></p>
+  <a href="https://housingaffordability.com.au/" target="_blank" rel="noopener">HATS Lab Dashboard</a> · UNSW Sydney · Data: NSW DCJ, ABS · Enquiries: <a href="mailto:s.eacott@unsw.edu.au" style="display:inline-flex;align-items:center;gap:4px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>s.eacott@unsw.edu.au</a></p>
 </footer>
 
 <script>
